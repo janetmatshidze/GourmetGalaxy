@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Base.Theme.GourmetGalaxy" parent="Theme.MaterialComponents.Light.NoActionBar">
+        <!-- Customize your light theme here. -->
+        <item name="colorPrimary">@color/teal</item>
+        <item name="colorPrimaryDark">@color/white</item>
+        <item name="colorAccent">@color/coral</item>
+    </style>
+
+    <style name="Theme.GourmetGalaxy" parent="Base.Theme.GourmetGalaxy" />
+
+    <style name="Theme.GourmetGalaxy.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="Theme.GourmetGalaxy.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="Theme.GourmetGalaxy.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+</resources>

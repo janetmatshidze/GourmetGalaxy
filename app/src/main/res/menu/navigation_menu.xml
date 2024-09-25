@@ -1,0 +1,54 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group />
+
+    <item
+        android:id="@+id/nav_home"
+        android:icon="@drawable/img_dashboard"
+        android:title="Dashboard"
+
+        />
+
+    <item
+        android:id="@+id/nav_rewards"
+        android:icon="@drawable/img_rewards"
+        android:title="Leaderboard"
+
+        />
+
+    <item
+        android:id="@+id/nav_favourites"
+        android:icon="@drawable/img_favourites"
+        android:title="Favourites"
+        />
+
+    <item
+        android:id="@+id/nav_shoppinglist"
+        android:icon="@drawable/img_shopping"
+        android:title="Shopping List"
+
+        />
+
+
+
+    <item
+        android:title="Personal"
+       >
+
+        <menu>
+
+            <group />
+            <item
+                android:id="@+id/nav_settings"
+                android:icon="@drawable/img_settings"
+                android:title="Settings"
+
+                />
+
+        </menu>
+
+    </item>
+</menu>
+

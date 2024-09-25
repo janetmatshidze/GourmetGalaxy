@@ -1,0 +1,23 @@
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Selected state with dark grey color -->
+    <item android:state_selected="true">
+        <shape android:shape="oval">
+            <size
+                android:width="30dp"
+                android:height="30dp" />
+            <solid android:color="@color/darkgrey" />
+        </shape>
+    </item>
+
+    <!-- Default state with light grey color -->
+    <item>
+        <shape android:shape="oval">
+            <size
+                android:width="30dp"
+                android:height="30dp" />
+            <solid android:color="@color/lightgrey" />
+        </shape>
+    </item>
+</selector>
+
+

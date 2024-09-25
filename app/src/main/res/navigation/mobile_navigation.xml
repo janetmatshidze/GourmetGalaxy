@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@id/nav_home">
+
+    <fragment
+        android:id="@+id/nav_home"
+        android:name="com.example.gourmetgalaxy.HomeFragment"
+        tools:layout="@layout/fragment_home" />
+
+    <fragment
+        android:id="@+id/nav_leaderboard"
+        android:name="com.example.gourmetgalaxy.LeaderboardFragment"
+        tools:layout="@layout/fragment_leaderboard" />
+    <fragment
+        android:id="@+id/nav_favourites"
+        android:name="com.example.gourmetgalaxy.FavouritesFragment"
+        tools:layout="@layout/fragment_favourites" />
+
+    <fragment
+        android:id="@+id/nav_shoppinglist"
+        android:name="com.example.gourmetgalaxy.ShoppingListFragment"
+        tools:layout="@layout/fragment_shoppinglist" />
+
+    <fragment
+        android:id="@+id/nav_recipe"
+        android:name="com.example.gourmetgalaxy.RecipeFragment"
+        tools:layout="@layout/fragment_recipe" />
+
+    <fragment
+        android:id="@+id/addrecipeFragment"
+        android:name="com.example.gourmetgalaxy.AddRecipeFragment"
+        tools:layout="@layout/fragment_addrecipe" />
+
+    <action
+        android:id="@+id/action_recipeFragment_to_addrecipeFragment"
+        app:destination="@id/addrecipeFragment" />
+
+    <fragment
+        android:id="@+id/nav_settings"
+        android:name="com.example.gourmetgalaxy.SettingsFragment"
+        tools:layout="@layout/fragment_settings" />
+
+    <action
+        android:id="@+id/action_editprofileFragemnt_to_settingsFragment"
+        app:destination="@+id/nav_settings" />
+
+    <fragment
+        android:id="@+id/editProfileFragment"
+        android:name="com.example.gourmetgalaxy.EditProfileFragment"
+        tools:layout="@layout/fragment_edit_profile"
+         />
+    <action
+        android:id="@+id/action_settingsFragment_to_editprofileFragment"
+        app:destination="@+id/editProfileFragment" />
+
+    <action
+        android:id="@+id/action_settingsFragment_to_settingsnotificationsFragment"
+        app:destination="@+id/settingsnotifications" />
+
+    <action
+        android:id="@+id/action_settingsnotificationsFragment_to_settingsFragment"
+        app:destination="@+id/nav_settings" />
+
+
+    <fragment
+        android:id="@+id/fingerprintFragment"
+        android:name="com.example.gourmetgalaxy.FingerprintFragment"
+        tools:layout="@layout/fragment_fingerprint" />
+
+    <action
+        android:id="@+id/action_settingsFragment_to_fingerprintFragment"
+        app:destination="@id/fingerprintFragment" />
+
+    <action
+        android:id="@+id/action_fingerprintFragment_to_settingsFragment"
+        app:destination="@id/nav_settings" />
+
+    <fragment
+        android:id="@+id/languageFragment"
+        android:name="com.example.gourmetgalaxy.LanguageFragment"
+        tools:layout="@layout/fragment_language" />
+    <action
+        android:id="@+id/action_settingsFragment_to_languageFragment"
+        app:destination="@id/languageFragment" />
+    <action
+        android:id="@+id/action_languageFragment_to_settingsFragment"
+        app:destination="@id/nav_settings" />
+
+    <fragment
+        android:id="@+id/nav_notifications"
+        android:name="com.example.gourmetgalaxy.NotificationsFragment"
+        tools:layout="@layout/fragment_notifications" />
+    <fragment
+        android:id="@+id/settingsnotifications"
+        android:name="com.example.gourmetgalaxy.SettingsNotificationsFragment"
+        tools:layout="@layout/fragment_notifications" />
+    <action
+        android:id="@+id/action_notificationsFragment_to_settingsnotificationsFragment"
+        app:destination="@+id/settingsnotifications" />
+
+    <fragment
+        android:id="@+id/addIngredientsFragment"
+        android:name="com.example.gourmetgalaxy.AddIngredientsFragment"
+        tools:layout="@layout/fragment_add_ingredients" />
+
+    <action
+        android:id="@+id/action_shoppinglist_to_addingredientsFragment"
+        app:destination="@+id/addIngredientsFragment" />
+
+
+</navigation>

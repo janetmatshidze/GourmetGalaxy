@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="16dp"
+    app:cardCornerRadius="16dp"
+    app:cardElevation="4dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="8dp">
+
+
+        <ImageButton
+            android:id="@+id/editprofileBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/img_arrow_left"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:layout_gravity="start"
+            android:layout_marginBottom="8dp"/>
+
+        <!-- Profile Picture Section -->
+        <ImageView
+            android:id="@+id/edit_profile_image"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_gravity="center"
+            android:contentDescription="Profile Picture"
+            android:padding="2dp"
+            android:src="@drawable/img_profile2"
+            android:elevation="4dp" />
+
+        <!-- Upload and Take Photo Buttons -->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/upload_image_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="Upload Image"
+            android:textColor="@color/white"
+            app:cornerRadius="20dp"
+            android:icon="@drawable/img_camera2"
+            app:iconTint="@color/white"
+            android:backgroundTint="@color/coral"
+            android:layout_marginTop="8dp" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/take_photo_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="Take Photo"
+            android:backgroundTint="@color/coral"
+            android:textColor="@color/white"
+            app:cornerRadius="20dp"
+            app:iconTint="@color/white"
+            android:layout_marginTop="8dp" />
+
+        <!-- Name Section -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Name"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            android:layout_marginTop="12dp"
+            android:textColor="@color/black" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            app:boxStrokeColor="@color/teal"
+            app:boxBackgroundMode="outline"
+            app:boxCornerRadiusTopStart="10dp"
+            app:boxCornerRadiusBottomEnd="10dp">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/edit_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Enter your name"
+                android:textSize="14sp" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!-- Joined Date Section -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Joined Date"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            android:layout_marginTop="12dp"
+            android:textColor="@color/black" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/select_joined_date_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Select Date"
+            android:textColor="@color/white"
+            app:cornerRadius="20dp"
+            android:backgroundTint="@color/coral"
+            android:layout_marginTop="4dp" />
+
+        <TextView
+            android:id="@+id/joined_date_display"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:text="Dec 28, 2020"
+            android:textSize="14sp"
+            android:textColor="@color/darkgrey" />
+
+        <!-- Save Changes Button -->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/save_profile_btn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Save Changes"
+            android:textColor="@color/white"
+            app:cornerRadius="20dp"
+            android:backgroundTint="@color/teal"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="8dp" />
+    </LinearLayout>
+</androidx.cardview.widget.CardView>

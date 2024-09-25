@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    app:startDestination="@id/nav_home"
+    android:id="@+id/bottom_navigation">
+
+    <fragment
+        android:id="@+id/nav_home"
+        android:name="com.example.gourmetgalaxy.HomeFragment"
+        tools:layout="@layout/fragment_home" />
+
+    <fragment
+        android:id="@+id/nav_favourites"
+        android:name="com.example.gourmetgalaxy.FavouritesFragment"
+        tools:layout="@layout/fragment_favourites" />
+
+    <fragment
+        android:id="@+id/nav_recipe"
+        android:name="com.example.gourmetgalaxy.RecipeFragment"
+        tools:layout="@layout/fragment_recipe" />
+
+    <fragment
+        android:id="@+id/nav_shoppinglist"
+        android:name="com.example.gourmetgalaxy.ShoppingListFragment"
+        tools:layout="@layout/fragment_shoppinglist" />
+
+    <fragment
+        android:id="@+id/nav_notifications"
+        android:name="com.example.gourmetgalaxy.NotificationsFragment"
+        tools:layout="@layout/fragment_notifications" />
+
+
+</navigation>
