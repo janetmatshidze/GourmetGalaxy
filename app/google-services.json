@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "601929031847",
+    "project_id": "gourmetgalaxy-74c77",
+    "storage_bucket": "gourmetgalaxy-74c77.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:601929031847:android:eed2243164ebf04d23bb82",
+        "android_client_info": {
+          "package_name": "com.example.gourmetgalaxy"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "601929031847-gi1j1pjistifr8iu7acp94nm11k3tpef.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.gourmetgalaxy",
+            "certificate_hash": "2dd6c0f254b3e08f27bf02aaae99dd9435f3971f"
+          }
+        },
+        {
+          "client_id": "601929031847-88ml4kr860npeeppssqaj573euh6cmv1.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCnQ0HbBzjY3_QXRLLrdFwmeJfgi_u7JQc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "601929031847-88ml4kr860npeeppssqaj573euh6cmv1.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

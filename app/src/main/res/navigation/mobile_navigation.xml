@@ -14,10 +14,16 @@
         android:id="@+id/nav_leaderboard"
         android:name="com.example.gourmetgalaxy.LeaderboardFragment"
         tools:layout="@layout/fragment_leaderboard" />
+
     <fragment
         android:id="@+id/nav_favourites"
         android:name="com.example.gourmetgalaxy.FavouritesFragment"
         tools:layout="@layout/fragment_favourites" />
+
+    <action
+        android:id="@+id/action_favouritesFragment_to_homeFragment"
+        app:destination="@+id/nav_home" />
+
 
     <fragment
         android:id="@+id/nav_shoppinglist"
@@ -109,6 +115,9 @@
     <action
         android:id="@+id/action_shoppinglist_to_addingredientsFragment"
         app:destination="@+id/addIngredientsFragment" />
+
+
+
 
 
 </navigation>

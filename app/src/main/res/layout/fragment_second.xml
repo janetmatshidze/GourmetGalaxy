@@ -9,9 +9,6 @@
     android:padding="16dp"
     tools:context=".SecondFragment">
 
-    <!-- First TextView: Kept as is -->
-
-    <!-- ImageView: Made responsive -->
     <TextView
         android:id="@+id/textView"
         android:layout_width="207dp"
@@ -20,7 +17,7 @@
         android:fontFamily="@font/aclonica"
         android:text="@string/manage_your_recipes"
         android:textColor="@color/black"
-        android:textSize="20sp"
+        android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
@@ -45,12 +42,12 @@
         android:id="@+id/textView1"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
+        android:layout_marginTop="52dp"
         android:fontFamily="@font/playfairdisplay"
         android:text="@string/add_recipe"
         android:textAlignment="center"
         android:textColor="@color/darkteal"
-        android:textSize="12sp"
+        android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"

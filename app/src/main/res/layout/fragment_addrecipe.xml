@@ -8,240 +8,226 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".AddRecipeFragment">
 
-        <ScrollView
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_margin="16dp"
+        android:fillViewport="true"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/AddRecipeButton">
+
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_margin="16dp"
-            android:fillViewport="true"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent">
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
 
-            <androidx.constraintlayout.widget.ConstraintLayout
+            <!-- Title -->
+
+            <!-- Back Button -->
+            <ImageButton
+                android:id="@+id/backButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@color/white"
+                android:src="@drawable/img_arrow_left" />
+
+            <!-- Upload block -->
+            <TextView
+                android:id="@+id/titleTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginBottom="10dp"
+                android:fontFamily="@font/aclonica"
+                android:text="Add A New Recipe"
+                android:textColor="@color/black"
+                android:textSize="22sp" />
+
+            <LinearLayout
+                android:id="@+id/uploadlayout"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:background="@drawable/ic_dashed_border"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:padding="16dp"
+                android:layout_marginTop="16dp">
+
+                <ImageView
+                    android:id="@+id/upload_image"
+                    android:layout_width="272dp"
+                    android:layout_height="115dp"
+                    android:src="@drawable/img_camera" />
 
                 <TextView
-                    android:id="@+id/titleTextView"
+                    android:id="@+id/upload_text"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:fontFamily="@font/aclonica"
-                    android:text="Add A New Recipe"
-                    android:textColor="@color/black"
-                    android:textSize="22sp"
                     android:layout_marginTop="8dp"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
-
-                <ImageButton
-                    android:id="@+id/backButton"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:backgroundTint="@color/white"
-                    android:src="@drawable/img_arrow_left"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                     />
-
-                <!-- Upload block -->
-                <LinearLayout
-                    android:id="@+id/upload_block"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:background="@drawable/ic_dashed_border"
+                    android:fontFamily="@font/aclonica"
                     android:gravity="center"
-                    android:orientation="vertical"
-                    android:padding="16dp"
-                    app:layout_constraintTop_toBottomOf="@id/titleTextView"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    android:layout_marginTop="16dp">
+                    android:text="Upload a photo"
+                    android:textColor="@android:color/black"
+                    android:textSize="20sp" />
+            </LinearLayout>
 
-                    <ImageView
-                        android:id="@+id/upload_image"
-                        android:layout_width="272dp"
-                        android:layout_height="115dp"
-                        android:src="@drawable/img_camera" />
+            <!-- Recipe Name -->
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/recipeNameInputLayout"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Recipe Name"
+                app:boxStrokeColor="@color/teal"
+                app:boxBackgroundMode="outline"
+                app:boxCornerRadiusTopStart="10dp"
+                app:boxCornerRadiusBottomEnd="10dp"
+                android:layout_marginTop="16dp">
 
-                    <TextView
-                        android:id="@+id/upload_text"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="8dp"
-                        android:fontFamily="@font/aclonica"
-                        android:gravity="center"
-                        android:text="Upload a photo"
-                        android:textColor="@android:color/black"
-                        android:textSize="20sp" />
-                </LinearLayout>
-
-                <!-- Recipe Name -->
-                <TextView
-                    android:id="@+id/recipeNameTextView"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="@font/playfairdisplay"
-                    android:text="Recipe Name:"
-                    android:textColor="@color/black"
-                    android:textSize="18sp"
-                    app:layout_constraintTop_toBottomOf="@id/upload_block"
-                    app:layout_constraintStart_toStartOf="parent"
-                    android:layout_marginTop="16dp" />
-
-                <EditText
+                <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/editRecipe"
                     android:layout_width="match_parent"
-                    android:layout_height="49dp"
-                    android:background="@drawable/ic_teal_border"
-                    android:inputType="text"
-                    app:layout_constraintTop_toBottomOf="@id/recipeNameTextView"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    android:layout_marginTop="8dp" />
-
-                <!-- Recipe Description -->
-                <TextView
-                    android:id="@+id/recipeDescriptionTextView"
-                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:fontFamily="@font/playfairdisplay"
-                    android:text="Recipe Description:"
-                    android:textColor="@color/black"
-                    android:textSize="18sp"
-                    app:layout_constraintTop_toBottomOf="@id/editRecipe"
-                    app:layout_constraintStart_toStartOf="parent"
-                    android:layout_marginTop="16dp" />
+                    android:inputType="text"
+                    android:fontFamily="@font/inter"
+                    android:textColor="@color/black" />
+            </com.google.android.material.textfield.TextInputLayout>
 
-                <EditText
+            <!-- Recipe Description -->
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/recipeDescriptionInputLayout"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Recipe Description"
+                app:boxStrokeColor="@color/teal"
+                app:boxBackgroundMode="outline"
+                app:boxCornerRadiusTopStart="10dp"
+                app:boxCornerRadiusBottomEnd="10dp"
+                app:boxBackgroundColor="@color/white"
+                android:layout_marginTop="16dp">
+
+                <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/editDescription"
                     android:layout_width="match_parent"
-                    android:layout_height="49dp"
-                    android:background="@drawable/ic_teal_border"
-                    android:inputType="text"
-                    app:layout_constraintTop_toBottomOf="@id/recipeDescriptionTextView"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    android:layout_marginTop="8dp" />
-
-                <!-- Duration -->
-                <TextView
-                    android:id="@+id/durationTextView"
-                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:fontFamily="@font/playfairdisplay"
-                    android:text="Duration:"
-                    android:textColor="@color/black"
-                    android:textSize="18sp"
-                    app:layout_constraintTop_toBottomOf="@id/editDescription"
-                    app:layout_constraintStart_toStartOf="parent"
-                    android:layout_marginTop="16dp" />
+                    android:inputType="text"
+                    android:fontFamily="@font/inter"
+                    android:textColor="@color/black" />
+            </com.google.android.material.textfield.TextInputLayout>
 
-                <EditText
+            <!-- Duration -->
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/durationInputLayout"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Duration"
+                app:boxStrokeColor="@color/teal"
+                app:boxBackgroundMode="outline"
+                app:boxCornerRadiusTopStart="10dp"
+                app:boxCornerRadiusBottomEnd="10dp"
+                app:boxBackgroundColor="@color/white"
+                android:layout_marginTop="16dp">
+
+                <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/editDuration"
                     android:layout_width="match_parent"
-                    android:layout_height="49dp"
-                    android:background="@drawable/ic_teal_border"
+                    android:layout_height="wrap_content"
                     android:drawableEnd="@drawable/img_clock"
                     android:inputType="text"
-                    app:layout_constraintTop_toBottomOf="@id/durationTextView"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    android:layout_marginTop="8dp" />
+                    android:fontFamily="@font/inter"
+                    android:textColor="@color/black" />
+            </com.google.android.material.textfield.TextInputLayout>
 
-                <!-- Spinner for Meal Course -->
-                <TextView
-                    android:id="@+id/mealCourseTextView"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="@font/playfairdisplay"
-                    android:text="Meal Course:"
-                    android:textColor="@color/black"
-                    android:textSize="18sp"
-                    app:layout_constraintTop_toBottomOf="@id/editDuration"
-                    app:layout_constraintStart_toStartOf="parent"
-                    android:layout_marginTop="16dp" />
+            <!-- Meal Course -->
 
-                <Spinner
-                    android:id="@+id/mealCourseSpinner"
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/menu"
+                style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.ExposedDropdownMenu"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:hint="Meal Course"
+                >
+
+                <AutoCompleteTextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp"
+                    android:inputType="none"
                     android:entries="@array/categories_array"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/mealCourseTextView" />
+                    android:fontFamily="@font/inter"
+                    />
 
-                <!-- Ingredients -->
-                <TextView
-                    android:id="@+id/ingredientsTextView"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="@font/playfairdisplay"
-                    android:text="Ingredients:"
-                    android:textColor="@color/black"
-                    android:textSize="18sp"
-                    app:layout_constraintTop_toBottomOf="@id/mealCourseSpinner"
-                    app:layout_constraintStart_toStartOf="parent"
-                    android:layout_marginTop="16dp" />
+            </com.google.android.material.textfield.TextInputLayout>
 
-                <EditText
+
+            <!-- Ingredients -->
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/ingredientsInputLayout"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:boxStrokeColor="@color/teal"
+                app:boxBackgroundMode="outline"
+                app:boxCornerRadiusTopStart="10dp"
+                app:boxCornerRadiusBottomEnd="10dp"
+                app:boxBackgroundColor="@color/white"
+                android:layout_marginTop="16dp">
+
+                <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/editIngredients"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp"
-                    android:background="@drawable/ic_teal_border"
-                    android:gravity="top"
-                    android:hint="Enter ingredients (numbered)"
                     android:inputType="textMultiLine"
+                    android:hint="Ingredients"
                     android:minHeight="150dp"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/ingredientsTextView" />
+                    android:fontFamily="@font/inter"
+                    android:gravity="top"
+                    android:textColor="@color/black" />
+            </com.google.android.material.textfield.TextInputLayout>
 
-                <!-- Instructions -->
-                <TextView
-                    android:id="@+id/instructionsTextView"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="@font/playfairdisplay"
-                    android:text="Instructions:"
-                    android:textColor="@color/black"
-                    android:textSize="18sp"
-                    app:layout_constraintTop_toBottomOf="@id/editIngredients"
-                    app:layout_constraintStart_toStartOf="parent"
-                    android:layout_marginTop="16dp" />
+            <!-- Instructions -->
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/instructionsInputLayout"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:boxStrokeColor="@color/teal"
+                app:boxBackgroundMode="outline"
+                app:boxCornerRadiusTopStart="10dp"
+                app:boxCornerRadiusBottomEnd="10dp"
+                app:boxBackgroundColor="@color/white"
+                android:layout_marginTop="16dp">
 
-                <EditText
+                <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/editInstructions"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/ic_teal_border"
-                    android:hint="Enter instructions (numbered)"
-                    android:minHeight="150dp"
-                    android:gravity="top"
                     android:inputType="textMultiLine"
-                    app:layout_constraintTop_toBottomOf="@id/instructionsTextView"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    android:layout_marginTop="8dp" />
+                    android:hint="Step-by-step instructions"
+                    android:minHeight="200dp"
+                    android:gravity="top"
+                    android:textColor="@color/black" />
+            </com.google.android.material.textfield.TextInputLayout>
+        </LinearLayout>
+    </ScrollView>
 
-                <!-- Add Recipe Button -->
-                <Button
-                    android:id="@+id/addRecipeButton"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:background="@drawable/ic_recipe_btn"
-                    android:fontFamily="@font/aclonica"
-                    android:text="Add Recipe"
-                    android:textAllCaps="false"
-                    android:textColor="@color/white"
-                    android:textSize="20sp"
-                    app:layout_constraintTop_toBottomOf="@id/editInstructions"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    android:layout_marginTop="16dp" />
+    <!-- Save Button -->
+    <Button
+        android:id="@+id/AddRecipeButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/teal"
+        android:text="Add Recipe"
+        android:textColor="@android:color/white"
+        android:fontFamily="@font/aclonica"
+        android:textAllCaps="true"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_margin="16dp" />
 
-            </androidx.constraintlayout.widget.ConstraintLayout>
-        </ScrollView>
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

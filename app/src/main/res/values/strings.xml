@@ -17,8 +17,8 @@
     <string name="favorite_recipe_collection">Favorite Recipe Collection</string>
     <string name="open">Open</string>
     <string name="close">Close</string>
+
     <string-array name="categories_array">
-        <item>Category</item>
         <item>Breakfast</item>
         <item>Lunch</item>
         <item>Dinner</item>
@@ -38,6 +38,15 @@
     <string name="attachment_summary_on">Automatically download attachments for incoming emails
     </string>
     <string name="attachment_summary_off">Only download attachments when manually requested</string>
+    <string name="default_web_client_id" />
+
+
+    <string name="facebook_app_id">2090178794709663</string>
+    <string name="fb_login_protocol_scheme">fb2090178794709663</string>
+    <string name="facebook_client_token">24b48460406420ebfb1f4edb0a67a942</string>
+    <string name="favorite_button" />
+
+
 </resources>
 
 
