@@ -27,7 +27,7 @@
             android:layout_marginStart="50dp"
             android:drawablePadding="20dp"
             android:textFontWeight="400"
-            android:text="Notifications"
+            android:text="@string/notifications_fragment"
             android:fontFamily="@font/inter"
             android:textAppearance="?attr/textAppearanceHeadline6" />
 
@@ -68,7 +68,7 @@
                 android:id="@+id/tv_new_recipes"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="New Recipes"
+                android:text="@string/new_recipes"
                 android:textAppearance="?attr/textAppearanceSubtitle1"
                 android:layout_marginBottom="8dp"/>
 
@@ -76,7 +76,7 @@
                 android:id="@+id/tv_new_recipes_description"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Get notified when new recipes are added"
+                android:text="@string/get_notified_when_new_recipes_are_added"
                 android:textAppearance="?attr/textAppearanceBody2"
                 android:layout_marginBottom="16dp"/>
 
@@ -97,7 +97,7 @@
                 android:id="@+id/tv_recipe_ratings"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Recipe Ratings"
+                android:text="@string/recipe_ratings"
                 android:textAppearance="?attr/textAppearanceSubtitle1"
                 android:layout_marginBottom="8dp" />
 
@@ -105,7 +105,7 @@
                 android:id="@+id/tv_recipe_ratings_description"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Get notified when your favorite recipes are rated"
+                android:text="@string/get_notified_when_your_favorite_recipes_are_rated"
                 android:textAppearance="?attr/textAppearanceBody2"
                 android:layout_marginBottom="16dp" />
 

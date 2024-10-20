@@ -63,7 +63,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:fontFamily="@font/playfairdisplay"
-            android:text="Blueberry Granola Delight"
+            android:text="@string/blueberry_granola_delight"
             android:textColor="@android:color/black"
             android:textSize="18sp"
             android:textStyle="bold" />
@@ -75,7 +75,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="4dp"
             android:fontFamily="@font/inter"
-            android:text="Granola with honey creamy yogurt, and fresh blueberries."
+            android:text="@string/granola_with_honey_creamy_yogurt_and_fresh_blueberries"
             android:textColor="@android:color/darker_gray"
             android:textSize="15sp" />
 
@@ -108,7 +108,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="4dp"
                     android:fontFamily="@font/inter"
-                    android:text="15 mins"
+                    android:text="@string/_15_mins"
                     android:textColor="@color/white"
                     android:textSize="14sp" />
             </LinearLayout>

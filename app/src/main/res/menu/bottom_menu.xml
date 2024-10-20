@@ -6,34 +6,34 @@
         android:id="@+id/nav_home"
         android:iconTint="@drawable/ic_nav_item_color"
         android:icon="@drawable/img_home"
-        android:title="Home"
+        android:title="@string/home"
         />
 
     <item
         android:id="@+id/nav_favourites"
         android:iconTint="@drawable/ic_nav_item_color"
         android:icon="@drawable/img_favourites"
-        android:title="Favourites"
+        android:title="@string/favourites_bottom"
         />
 
     <item
         android:id="@+id/nav_recipe"
         android:iconTint="@drawable/ic_nav_item_color"
         android:icon="@drawable/img_add_recipe"
-        android:title="Add Recipe"
+        android:title="@string/addrecipe_bottom"
         />
 
     <item
         android:id="@+id/nav_shoppinglist"
         android:iconTint="@drawable/ic_nav_item_color"
         android:icon="@drawable/img_shopping"
-        android:title="Shopping List"
+        android:title="@string/shoppinglist_bottom"
         />
 
     <item
         android:id="@+id/nav_notifications"
         android:iconTint="@drawable/ic_nav_item_color"
         android:icon="@drawable/img_notifications"
-        android:title="Notifications"
+        android:title="@string/notifications_bottom"
         />
 </menu>

@@ -16,7 +16,7 @@
         android:layout_marginEnd="20dp"
         android:layout_marginBottom="20dp"
         android:fontFamily="@font/aclonica"
-        android:text="Add an item to your shopping list"
+        android:text="@string/add_an_item_to_your_shopping_list"
         android:textColor="@color/black"
         android:textSize="20sp"
         app:layout_constraintBottom_toTopOf="@+id/imageView9"

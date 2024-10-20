@@ -8,5 +8,6 @@
     <color name="darkgrey">#9095a0</color>
     <color name="lightteal">#1c727c</color>
     <color name ="coral">#66b2b2</color>
+    <color name="transparentwhite">#B3FFFFFF</color>
 
 </resources>

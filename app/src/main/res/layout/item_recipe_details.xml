@@ -1,0 +1,173 @@
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            >
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="350dp"
+                >
+
+                <ImageView
+                    android:id="@+id/recipeImage"
+                    android:layout_width="800dp"
+                    android:layout_height="600dp"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/img_cinnamon"
+                    android:contentDescription="@string/todo" />
+
+                <ImageButton
+                    android:id="@+id/backButton"
+                    android:layout_width="48dp"
+                    android:layout_height="55dp"
+                    android:layout_alignParentStart="true"
+                    android:layout_margin="16dp"
+                    android:background="@drawable/ic_recipe_radius"
+                    android:src="@drawable/img_arrowleft"
+                    android:contentDescription="@string/todo" />
+
+                <ImageButton
+                    android:id="@+id/bookmarkButton"
+                    android:layout_width="48dp"
+                    android:layout_height="55dp"
+                    android:layout_alignParentEnd="true"
+                    android:layout_margin="16dp"
+                    android:background="@drawable/ic_recipe_radius"
+                    android:src="@drawable/ic_bookmark_border"
+                    android:contentDescription="@string/todo" />
+            </RelativeLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:topLeftRadius="16dp"
+                android:topRightRadius="16dp"
+                android:padding="16dp">
+
+                <TextView
+                    android:id="@+id/recipeTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/apple_cinnamon_pancakes"
+                    android:fontFamily="@font/playfairdisplay"
+                    android:textColor="@android:color/black"
+                    android:textSize="22sp"
+                    android:textStyle="bold" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="8dp"
+                    android:gravity="center_vertical">
+
+                    <LinearLayout
+                        android:layout_width="120dp"
+                        android:layout_height="40dp"
+                        android:background="@drawable/ic_favourite_border"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal"
+                        android:padding="10dp">
+
+                        <ImageView
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
+                            android:layout_marginStart="8dp"
+                            android:src="@drawable/baseline_access_alarm_24"
+                            android:contentDescription="@string/todo" />
+
+                        <TextView
+                            android:id="@+id/recipeDuration"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="4dp"
+                            android:fontFamily="@font/inter"
+                            android:text="@string/_20_mins"
+                            android:textColor="@color/white"
+                            android:textSize="14sp" />
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        />
+
+                    <RatingBar
+                        android:id="@+id/ratingBar"
+                        style="?android:attr/ratingBarStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:numStars="5"
+                        android:rating="4"
+                        android:scaleX="0.5"
+                        android:scaleY="0.5"
+                        android:stepSize="0.5" />
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/recipeDescription"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:text="@string/apple_cinnamon_pancakes_filled_with_sweet_apple_chunks_and_cinnamon_topped_with_a_warm_apple_glaze_and_nuts"
+                    android:textColor="@color/darkgrey"
+                    android:fontFamily="@font/inter"
+                    android:textSize="15sp" />
+
+                <TextView
+                    android:id="@+id/ingredientsTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:text="@string/ingredients"
+                    android:fontFamily="@font/playfairdisplay"
+                    android:textColor="@color/teal"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/ingredientsList"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:fontFamily="@font/inter"
+                    android:text="@string/recipe_instructions"
+                    android:textColor="@color/darkgrey"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:id="@+id/instructionsTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:text="@string/instructions"
+                    android:fontFamily="@font/playfairdisplay"
+                    android:textColor="@color/teal"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/instructionsList"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:fontFamily="@font/inter"
+                    android:text="@string/recipe_instructions"
+                    android:textColor="@color/darkgrey"
+                    android:textSize="14sp" />
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

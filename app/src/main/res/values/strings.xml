@@ -1,19 +1,18 @@
 <resources>
     <string name="app_name">GourmetGalaxy</string>
-    <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="ready_to_cook_something_amazing">Ready to cook something amazing?</string>
-    <string name="dive_into_our_diverse_recipe_library_and_unleash_your_inner_chef">Dive into our diverse recipe library and unleash your inner chef !</string>
+    <string name="dive_into_our_diverse_recipe_library_and_unleash_your_inner_chef">Dive into our diverse recipe library and unleash your inner chef!</string>
     <string name="start_cooking">Start Cooking</string>
     <string name="todo">TODO</string>
     <string name="title_activity_tabbed">TabbedActivity</string>
     <string name="tab_text_1">Tab 1</string>
     <string name="tab_text_2">Tab 2</string>
-    <string name="organize_your_shopping">Organize Your Shopping</string>
-    <string name="Shopping_Slide1">Simplify your grocery shopping with our integrated shopping list feature. Easily add ingredients for your recipes to your shopping list and never miss an item.</string>
+    <string name="organize_your_shopping">Organize your Shopping</string>
+    <string name="Shopping_Slide1">Streamline your grocery shopping with our integrated shopping list feature. Easily add ingredients for your recipes to your shopping list and never miss an item.</string>
     <string name="manage_your_recipes">Create New Recipes</string>
-    <string name="add_recipe">Add and manage your recipes with ease. Include ingredients, preparation steps, and more to keep your recipe collection organized and up-to-date.</string>
-    <string name="add_favourite">Save your favorite recipes to easily access them later. Enjoy offline viewing of your saved recipes ,anywhere,anytime.</string>
+    <string name="add_recipe">Add and manage your recipes with ease. Include ingredients, preparation steps, and more to keep your recipe collection organized and up to date.</string>
+    <string name="add_favourite">Save your favorite recipes for easy access later. Enjoy offline viewing of your saved recipes, anywhere, anytime.</string>
     <string name="favorite_recipe_collection">Favorite Recipe Collection</string>
     <string name="open">Open</string>
     <string name="close">Close</string>
@@ -24,29 +23,109 @@
         <item>Dinner</item>
         <item>Dessert</item>
     </string-array>
-    <!-- Preference Titles -->
     <string name="messages_header">Messages</string>
     <string name="sync_header">Sync</string>
 
-    <!-- Messages Preferences -->
     <string name="signature_title">Your signature</string>
     <string name="reply_title">Default reply action</string>
 
-    <!-- Sync Preferences -->
     <string name="sync_title">Sync email periodically</string>
     <string name="attachment_title">Download incoming attachments</string>
-    <string name="attachment_summary_on">Automatically download attachments for incoming emails
-    </string>
+    <string name="attachment_summary_on">Automatically download attachments for incoming emails</string>
     <string name="attachment_summary_off">Only download attachments when manually requested</string>
-    <string name="default_web_client_id" />
+    <string name="default_web_client_id">601929031847-88ml4kr860npeeppssqaj573euh6cmv1.apps.googleusercontent.com</string>
 
-
-    <string name="facebook_app_id">2090178794709663</string>
-    <string name="fb_login_protocol_scheme">fb2090178794709663</string>
-    <string name="facebook_client_token">24b48460406420ebfb1f4edb0a67a942</string>
+    <string name="facebook_app_id" translatable="false">2090178794709663</string>
+    <string name="fb_login_protocol_scheme" translatable="false">fb2090178794709663</string>
+    <string name="facebook_client_token" translatable="false">601929031847-88ml4kr860npeeppssqaj573euh6cmv1.apps.googleusercontent.com</string>
     <string name="favorite_button" />
 
-
+    <string name="title_activity_base" translatable="false">BaseActivity</string>
+    <string name="search_ingredients">Search ingredients</string>
+    <string name="add_a_new_recipe">Add A New Recipe</string>
+    <string name="upload_a_photo">Upload a photo</string>
+    <string name="recipe_name">Recipe Name</string>
+    <string name="recipe_description">Recipe Description</string>
+    <string name="duration">Duration</string>
+    <string name="meal_course">Meal Course</string>
+    <string name="ingredients">Ingredients</string>
+    <string name="step_by_step_instructions">Step-by-step instructions</string>
+    <string name="add_recipe_button">Add Recipe</string>
+    <string name="enter_your_name">Enter your name</string>
+    <string name="name">Name</string>
+    <string name="joined_date">Joined Date</string>
+    <string name="select_date">Select Date</string>
+    <string name="dec_28_2020">Dec 28, 2020</string>
+    <string name="save_changes">Save Changes</string>
+    <string name="add_your_favourite_recipes">Add your favourite recipes</string>
+    <string name="recipes">Add Recipes</string>
+    <string name="fingerprint">Fingerprint</string>
+    <string name="add_fingerprint">Add Fingerprint</string>
+    <string name="welcome">Welcome</string>
+    <string name="discover_and_create_delicious_recipes_with_ease">Discover and create delicious recipes with ease</string>
+    <string name="search">Search</string>
+    <string name="language">Language</string>
+    <string name="language_english">English</string>
+    <string name="language_afrikaans">Afrikaans</string>
+    <string name="language_isizulu">IsiZulu</string>
+    <string name="turn_on_notifications">Turn on notifications?</string>
+    <string name="make_sure_you_stay_up_to_date_with_all_the_important_news_and_reminders_by_enabling_notifications_you_can_always_turn_it_off_later">Make sure you stay up-to-date with all the important news and reminders by enabling notifications. You can always turn it off later.</string>
+    <string name="turn_notifications">Turn on notifications</string>
+    <string name="not_now">Not now</string>
+    <string name="gather_and_share_your_best_recipes">Gather and Share Your Best Recipes</string>
+    <string name="add_new_recipe">Add New Recipe</string>
+    <string name="personal_details">Personal details</string>
+    <string name="information_amp_permissions"><![CDATA[Information & permissions]]></string>
+    <string name="fingerprint_settings">Fingerprint</string>
+    <string name="account">Account</string>
+    <string name="settings">Settings</string>
+    <string name="account_privacy">Account Privacy</string>
+    <string name="notifications">Notifications</string>
+    <string name="language_settings">Language</string>
+    <string name="help_amp_support"><![CDATA[Help & Support]]></string>
+    <string name="log_out">Log out</string>
+    <string name="delete_account">Delete account</string>
+    <string name="notifications_fragment">Notifications</string>
+    <string name="new_recipes">New Recipes</string>
+    <string name="get_notified_when_new_recipes_are_added">Get notified when new recipes are added</string>
+    <string name="recipe_ratings">Recipe Ratings</string>
+    <string name="get_notified_when_your_favorite_recipes_are_rated">Get notified when your favorite recipes are rated</string>
+    <string name="add_an_item_to_your_shopping_list">Add an item to your shopping list</string>
+    <string name="email">Email</string>
+    <string name="enter_your_email">Enter your email</string>
+    <string name="password">Password</string>
+    <string name="remember_me">Remember me</string>
+    <string name="sign_in">Sign In</string>
+    <string name="forgot_password">Forgot password?</string>
+    <string name="or">OR</string>
+    <string name="don_t_have_an_account_sign_up">Don\'t have an account? Sign Up</string>
+    <string name="first_name">First name</string>
+    <string name="enter_your_first_name">Enter your first name</string>
+    <string name="last_name">Last name</string>
+    <string name="enter_your_last_name">Enter your last name</string>
+    <string name="email_signup">Email</string>
+    <string name="enter_your_email_signup">Enter your email</string>
+    <string name="password_signup">Password</string>
+    <string name="sign_up">Sign Up</string>
+    <string name="or_signup">OR</string>
+    <string name="already_have_an_account_sign_in">Already have an account? Sign In</string>
+    <string name="blueberry_granola_delight">Blueberry Granola Delight</string>
+    <string name="granola_with_honey_creamy_yogurt_and_fresh_blueberries">Granola with honey creamy yogurt, and fresh blueberries.</string>
+    <string name="_15_mins">15 mins</string>
+    <string name="dashboard">Dashboard</string>
+    <string name="leaderboard">Leaderboard</string>
+    <string name="favourites">Favourites</string>
+    <string name="shopping_list">Shopping List</string>
+    <string name="personal">Personal</string>
+    <string name="settings_menu">Settings</string>
+    <string name="home">Home</string>
+    <string name="favourites_bottom">Favourites</string>
+    <string name="addrecipe_bottom">Add Recipe</string>
+    <string name="shoppinglist_bottom">Shopping List</string>
+    <string name="notifications_bottom">Notifications</string>
+    <string name="apple_cinnamon_pancakes_filled_with_sweet_apple_chunks_and_cinnamon_topped_with_a_warm_apple_glaze_and_nuts">Apple Cinnamon Pancakes filled with sweet apple chunks and cinnamon, topped with a warm apple glaze and nuts.</string>
+    <string name="instructions">Instructions</string>
+    <string name="recipe_instructions">1. In a bowl, mix the flour, sugar, baking powder, baking soda, and salt.\n2. In another bowl, whisk together the buttermilk, egg, and melted butter.\n3. Combine the wet and dry ingredients until just mixed.\n4. Heat a griddle over medium heat and pour ¼ cup of batter for each pancake.\n5. Cook until bubbles form on the surface, then flip and cook until golden brown.\n6. Serve warm topped with apple glaze and nuts.</string>
+    <string name="_20_mins">20 mins</string>
+    <string name="apple_cinnamon_pancakes">Apple Cinnamon Pancakes</string>
 </resources>
-
-

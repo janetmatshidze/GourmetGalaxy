@@ -7,34 +7,34 @@
     <item
         android:id="@+id/nav_home"
         android:icon="@drawable/img_dashboard"
-        android:title="Dashboard"
+        android:title="@string/dashboard"
 
         />
 
     <item
         android:id="@+id/nav_rewards"
         android:icon="@drawable/img_rewards"
-        android:title="Leaderboard"
+        android:title="@string/leaderboard"
 
         />
 
     <item
         android:id="@+id/nav_favourites"
         android:icon="@drawable/img_favourites"
-        android:title="Favourites"
+        android:title="@string/favourites"
         />
 
     <item
         android:id="@+id/nav_shoppinglist"
         android:icon="@drawable/img_shopping"
-        android:title="Shopping List"
+        android:title="@string/shopping_list"
 
         />
 
 
 
     <item
-        android:title="Personal"
+        android:title="@string/personal"
        >
 
         <menu>
@@ -43,7 +43,7 @@
             <item
                 android:id="@+id/nav_settings"
                 android:icon="@drawable/img_settings"
-                android:title="Settings"
+                android:title="@string/settings_menu"
 
                 />
 

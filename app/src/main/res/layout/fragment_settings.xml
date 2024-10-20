@@ -64,7 +64,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Account"
+            android:text="@string/account"
             android:textStyle="bold"
             android:textSize="16sp"
             android:paddingTop="20dp"
@@ -106,7 +106,7 @@
                         android:layout_weight="1"
                         android:textSize="16sp"
                         android:layout_marginStart="16dp"
-                        android:text="Personal details" />
+                        android:text="@string/personal_details" />
 
 
                     <ImageView
@@ -138,7 +138,7 @@
                         android:layout_weight="1"
                         android:textSize="16sp"
                         android:layout_marginStart="16dp"
-                        android:text="Information &amp; permissions" />
+                        android:text="@string/information_amp_permissions" />
 
                     <ImageView
                         android:layout_width="24dp"
@@ -169,7 +169,7 @@
                         android:layout_marginStart="16dp"
                         android:layout_weight="1"
                         android:textSize="16sp"
-                        android:text="Fingerprint" />
+                        android:text="@string/fingerprint_settings" />
 
                     <ImageView
                         android:layout_width="24dp"
@@ -184,7 +184,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Settings"
+            android:text="@string/settings"
             android:textStyle="bold"
             android:textSize="16sp"
             android:paddingTop="10dp"
@@ -224,7 +224,7 @@
                         android:textSize="16sp"
                         android:layout_gravity="center_vertical"
                         android:layout_marginStart="16dp"
-                        android:text="Account Privacy" />
+                        android:text="@string/account_privacy" />
 
                     <ImageView
                         android:layout_width="24dp"
@@ -256,7 +256,7 @@
                         android:textSize="16sp"
                         android:layout_gravity="center_vertical"
                         android:layout_marginStart="16dp"
-                        android:text="Notifications" />
+                        android:text="@string/notifications" />
 
                     <ImageView
                         android:layout_width="24dp"
@@ -288,7 +288,7 @@
                         android:textSize="16sp"
                         android:layout_gravity="center_vertical"
                         android:layout_marginStart="16dp"
-                        android:text="Language" />
+                        android:text="@string/language_settings" />
 
                     <ImageView
                         android:layout_width="24dp"
@@ -318,7 +318,7 @@
                         android:textSize="16sp"
                         android:layout_gravity="center_vertical"
                         android:layout_marginStart="16dp"
-                        android:text="Help &amp; Support" />
+                        android:text="@string/help_amp_support" />
 
                     <ImageView
                         android:layout_width="24dp"
@@ -336,7 +336,7 @@
             android:id="@+id/logout_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Log out"
+            android:text="@string/log_out"
             android:textSize="16sp"
             android:textColor="@android:color/holo_red_dark"
             android:padding="16dp" />
@@ -345,7 +345,7 @@
             android:id="@+id/delete_account"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Delete account"
+            android:text="@string/delete_account"
             android:textSize="16sp"
             android:textColor="#6E7787"
             android:padding="16dp" />

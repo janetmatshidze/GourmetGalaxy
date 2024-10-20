@@ -8,7 +8,7 @@ import androidx.viewpager2.widget.ViewPager2
 import com.example.gourmetgalaxy.databinding.ActivityTabbedBinding
 import com.google.android.material.tabs.TabLayoutMediator
 
-class TabbedActivity : AppCompatActivity() {
+class TabbedActivity : BaseActivity() {
     lateinit var viewPager2: ViewPager2
     private lateinit var binding: ActivityTabbedBinding
 
