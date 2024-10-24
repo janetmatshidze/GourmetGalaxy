@@ -113,4 +113,12 @@
     <string name="recipe_instructions">1. Hlanganisa ufulawa, ushukela, i-baking powder, i-baking soda, kanye nosawoti esitsheni.\n2. Kwesinye isitsha, hlanganisa ndawonye ukhethelo lwemasi, iqanda, kanye nebhotela encibilikile.\n3. Hlanganisa izithako ezimanzi nezomile kuze kube kushubile nje.\n4. Shisisa ipani phezu kokushisa okumaphakathi bese uthela ¼ indebe yebhatter ngomcada ngamunye.\n5. Pheka kuze kube namabhamuza azovela ebusweni, bese uphendula uze upheke uze ube nsundu ngegolide.\n6. Khonza kushisayo kubekwe isipuni se-apula esishisayo kanye namantongomane.</string>
     <string name="_20_mins">20 imizuzu</string>
     <string name="apple_cinnamon_pancakes">Ama-Pancake e-Apple Cinnamon</string>
+    <string name="recipe_ingredients">
+    • 1 inkomishi kafulawa oyindilinga yonke&#10;
+    • 1 ithisipuni ushukela&#10;
+    • 1 ithisipuni yomgubo wokubhaka&#10;
+    • ½ ithisipuni isoda yokubhaka&#10;
+    • 1 ithisipuni kakhinina&#10;
+</string>
+
 </resources>

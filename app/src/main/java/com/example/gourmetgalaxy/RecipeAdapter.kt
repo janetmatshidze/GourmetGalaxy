@@ -1,6 +1,7 @@
 package com.example.gourmetgalaxy
 
 import android.net.Uri
+import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -8,12 +9,13 @@ import android.widget.ImageButton
 import android.widget.ImageView
 import android.widget.RatingBar
 import android.widget.TextView
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
-import com.bumptech.glide.Glide // Assuming you're using Glide for image loading
+import com.bumptech.glide.Glide
 
 class RecipeAdapter(
     private val recipes: List<Recipe>,
-    private val onFavoriteClick: (Recipe) -> Unit // Callback for favorite button clicks
+    private val onFavoriteClick: (Recipe) -> Unit
 ) : RecyclerView.Adapter<RecipeAdapter.RecipeViewHolder>() {
 
     inner class RecipeViewHolder(view: View) : RecyclerView.ViewHolder(view) {
@@ -37,16 +39,31 @@ class RecipeAdapter(
         holder.recipeTitle.text = recipe.title
         holder.recipeDescription.text = recipe.description
         holder.recipeDuration.text = recipe.duration
-        holder.ratingBar.rating = 0f // Set the rating; adjust based on your data
+        holder.ratingBar.rating = 0f
 
-        // Load the image using Glide (or any other image loading library)
+        // Load the image using Glide
         Glide.with(holder.itemView.context)
-            .load(recipe.imageUri?.let { Uri.parse(it) }) // Check if imageUri is not null
+            .load(recipe.imageUri?.let { Uri.parse(it) })
             .into(holder.recipeImage)
+
+        // Handle item click to navigate to recipe details
+        holder.itemView.setOnClickListener {
+            val bundle = Bundle().apply {
+                putString("recipeImageUri", recipe.imageUri)
+                putString("recipeTitle", recipe.title)
+                putString("recipeDescription", recipe.description)
+                putString("recipeDuration", recipe.duration)
+                putString("recipeIngredients", recipe.ingredients)
+                putString("recipeInstructions", recipe.instructions)
+            }
+
+            // Navigate to RecipeDetailsFragment using the itemView
+            holder.itemView.findNavController().navigate(R.id.action_recipeHomeFragment_to_recipeDetailsFragment, bundle)
+        }
 
         // Handle favorite button clicks
         holder.favoriteButton.setOnClickListener {
-            onFavoriteClick(recipe) // Call the passed callback function
+            onFavoriteClick(recipe)
         }
     }
 

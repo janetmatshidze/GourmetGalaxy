@@ -1,9 +1,7 @@
-<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_height="match_parent">
-
 
     <ScrollView
         android:layout_width="match_parent"
@@ -12,18 +10,21 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            >
 
             <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="350dp">
+                android:layout_height="350dp"
+                >
 
                 <ImageView
                     android:id="@+id/recipeImage"
                     android:layout_width="800dp"
                     android:layout_height="600dp"
                     android:scaleType="centerCrop"
-                    android:src="@drawable/img_cinnamon" />
+                    android:src="@drawable/img_cinnamon"
+                    android:contentDescription="@string/todo" />
 
                 <ImageButton
                     android:id="@+id/backButton"
@@ -32,7 +33,8 @@
                     android:layout_alignParentStart="true"
                     android:layout_margin="16dp"
                     android:background="@drawable/ic_recipe_radius"
-                    android:src="@drawable/img_arrowleft" />
+                    android:src="@drawable/img_arrowleft"
+                    android:contentDescription="@string/todo" />
 
                 <ImageButton
                     android:id="@+id/bookmarkButton"
@@ -41,7 +43,8 @@
                     android:layout_alignParentEnd="true"
                     android:layout_margin="16dp"
                     android:background="@drawable/ic_recipe_radius"
-                    android:src="@drawable/ic_bookmark_border" />
+                    android:src="@drawable/ic_bookmark_border"
+                    android:contentDescription="@string/todo" />
             </RelativeLayout>
 
             <LinearLayout
@@ -56,7 +59,7 @@
                     android:id="@+id/recipeTitle"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Apple Cinnamon Pancakes"
+                    android:text="@string/apple_cinnamon_pancakes"
                     android:fontFamily="@font/playfairdisplay"
                     android:textColor="@android:color/black"
                     android:textSize="22sp"
@@ -81,7 +84,8 @@
                             android:layout_width="20dp"
                             android:layout_height="20dp"
                             android:layout_marginStart="8dp"
-                            android:src="@drawable/baseline_access_alarm_24" />
+                            android:src="@drawable/baseline_access_alarm_24"
+                            android:contentDescription="@string/todo" />
 
                         <TextView
                             android:id="@+id/recipeDuration"
@@ -89,7 +93,7 @@
                             android:layout_height="wrap_content"
                             android:layout_marginStart="4dp"
                             android:fontFamily="@font/inter"
-                            android:text="20 mins"
+                            android:text="@string/_20_mins"
                             android:textColor="@color/white"
                             android:textSize="14sp" />
                     </LinearLayout>
@@ -105,7 +109,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:numStars="5"
-                        android:rating="4"
+                        android:rating="0"
                         android:scaleX="0.5"
                         android:scaleY="0.5"
                         android:stepSize="0.5" />
@@ -126,7 +130,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="16dp"
-                    android:text="Ingredients"
+                    android:text="@string/ingredients"
                     android:fontFamily="@font/playfairdisplay"
                     android:textColor="@color/teal"
                     android:textSize="20sp"
@@ -138,7 +142,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
                     android:fontFamily="@font/inter"
-                    android:text="1 cup all-purpose flour\n1 tablespoon sugar\n1 teaspoon baking powder\n1/2 teaspoon baking soda\n1/4 teaspoon salt\n1 cup buttermilk\n1 large egg\n1 tablespoon melted butter"
+                    android:text="@string/recipe_ingredients"
                     android:textColor="@color/darkgrey"
                     android:textSize="14sp" />
 

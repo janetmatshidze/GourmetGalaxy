@@ -9,6 +9,33 @@
         android:id="@+id/nav_home"
         android:name="com.example.gourmetgalaxy.HomeFragment"
         tools:layout="@layout/fragment_home" />
+    <action
+        android:id="@+id/action_recipeHomeFragment_to_recipeDetailsFragment"
+        app:destination="@id/recipeDetailsFragment" />
+
+    <fragment
+        android:id="@+id/recipeDetailsFragment"
+        android:name="com.example.gourmetgalaxy.RecipeDetailsFragment"
+        android:label="Recipe Details" >
+        <argument
+            android:name="recipeTitle"
+            app:argType="string" />
+        <argument
+            android:name="recipeDescription"
+            app:argType="string" />
+        <argument
+            android:name="recipeDuration"
+            app:argType="string" />
+        <argument
+            android:name="recipeImageUri"
+            app:argType="string" />
+        <argument
+            android:name="recipeIngredients"
+            app:argType="string" />
+        <argument
+            android:name="recipeInstructions"
+            app:argType="string" />
+    </fragment>
 
     <fragment
         android:id="@+id/nav_leaderboard"
@@ -115,9 +142,5 @@
     <action
         android:id="@+id/action_shoppinglist_to_addingredientsFragment"
         app:destination="@+id/addIngredientsFragment" />
-
-
-
-
 
 </navigation>

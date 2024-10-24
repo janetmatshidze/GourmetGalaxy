@@ -9,4 +9,5 @@ data class Recipe(
     val instructions: String = "",
     var imageUri: String? = null,
     val mealCourse: String = ""
+
 )

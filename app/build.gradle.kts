@@ -1,7 +1,10 @@
 plugins {
     alias(libs.plugins.androidApplication)
     alias(libs.plugins.jetbrainsKotlinAndroid)
+    alias(libs.plugins.safeArgs)
     id("com.google.gms.google-services")
+
+
 }
 
 android {
@@ -78,6 +81,8 @@ dependencies {
     implementation(libs.facebookSdk)
     implementation(libs.material.spinner)
     implementation(libs.glide)
+    implementation(libs.navigation.fragment.ktx)
+    implementation(libs.navigation.ui.ktx)
     implementation("de.hdodenhof:circleimageview:3.1.0")
     annotationProcessor(libs.glide.compiler)
     androidTestImplementation(libs.androidx.junit)
