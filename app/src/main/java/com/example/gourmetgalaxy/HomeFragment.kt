@@ -52,10 +52,10 @@ class HomeFragment : Fragment() {
 
         // Observe the recipes and update the adapter
         viewModel.recipes.observe(viewLifecycleOwner) { recipes ->
-            // Pass a lambda to handle favorite button clicks
-            recipeAdapter = RecipeAdapter(recipes) { recipe ->
-                handleFavoriteClick(recipe) // Call the function to handle favorites
-            }
+            // Pass lambdas to handle favorite and bookmark button clicks
+            recipeAdapter = RecipeAdapter(recipes,
+                onFavoriteClick = { recipe -> handleFavoriteClick(recipe) },
+            )
             recyclerView.adapter = recipeAdapter
         }
 
@@ -75,8 +75,9 @@ class HomeFragment : Fragment() {
     }
 
     private fun handleFavoriteClick(recipe: Recipe) {
-        // Add your logic to handle favorite clicks here
+        // Add logic to handle favorite button clicks here
         // For example, toggle favorite status and update the UI
-        // You can also notify the ViewModel to update the favorite state in the database
     }
+
+
 }

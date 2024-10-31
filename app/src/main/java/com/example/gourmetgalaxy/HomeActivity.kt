@@ -4,7 +4,6 @@ import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
 import android.widget.ImageButton
-import androidx.appcompat.app.AppCompatActivity
 import androidx.viewpager2.widget.ViewPager2
 import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayoutMediator
@@ -35,13 +34,11 @@ class HomeActivity : BaseActivity() {
             startActivity(intent)
 
         }
-            val backButton = findViewById<ImageButton>(R.id.backButton)
+        val backButton = this.findViewById<ImageButton>(R.id.backButton)
+        backButton.setOnClickListener {
 
-              backButton.setOnClickListener {
-
-                val intent = Intent(this,MainActivity::class.java)
-                startActivity(intent)
-            }
-
+            val intent = Intent(this,MainActivity::class.java)
+            startActivity(intent)
+        }
     }
 }

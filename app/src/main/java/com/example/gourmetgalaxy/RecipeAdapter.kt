@@ -15,7 +15,8 @@ import com.bumptech.glide.Glide
 
 class RecipeAdapter(
     private val recipes: List<Recipe>,
-    private val onFavoriteClick: (Recipe) -> Unit
+    private val onFavoriteClick: (Recipe) -> Unit,
+
 ) : RecyclerView.Adapter<RecipeAdapter.RecipeViewHolder>() {
 
     inner class RecipeViewHolder(view: View) : RecyclerView.ViewHolder(view) {
@@ -25,6 +26,7 @@ class RecipeAdapter(
         val recipeDuration: TextView = view.findViewById(R.id.recipeDuration)
         val ratingBar: RatingBar = view.findViewById(R.id.ratingBar)
         val favoriteButton: ImageButton = view.findViewById(R.id.favoriteButton)
+
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecipeViewHolder {
@@ -57,14 +59,18 @@ class RecipeAdapter(
                 putString("recipeInstructions", recipe.instructions)
             }
 
-            // Navigate to RecipeDetailsFragment using the itemView
-            holder.itemView.findNavController().navigate(R.id.action_recipeHomeFragment_to_recipeDetailsFragment, bundle)
+            holder.itemView.findNavController().navigate(
+                R.id.action_recipeHomeFragment_to_recipeDetailsFragment, bundle
+            )
         }
 
         // Handle favorite button clicks
         holder.favoriteButton.setOnClickListener {
             onFavoriteClick(recipe)
+            holder.favoriteButton.setImageResource(R.drawable.ic_bookmark_border2)
+
         }
+
     }
 
     override fun getItemCount(): Int = recipes.size

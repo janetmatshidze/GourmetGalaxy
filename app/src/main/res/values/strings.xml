@@ -36,8 +36,10 @@
     <string name="default_web_client_id">601929031847-88ml4kr860npeeppssqaj573euh6cmv1.apps.googleusercontent.com</string>
 
     <string name="facebook_app_id" translatable="false">2090178794709663</string>
+    <string name="facebook_app_secret" translatable="false">609ff6cfd6d653c6c1cf993eb6a9eb64</string>
+    <string name="facebook_client_token" translatable="false">24b48460406420ebfb1f4edb0a67a942</string>
     <string name="fb_login_protocol_scheme" translatable="false">fb2090178794709663</string>
-    <string name="facebook_client_token" translatable="false">601929031847-88ml4kr860npeeppssqaj573euh6cmv1.apps.googleusercontent.com</string>
+
     <string name="favorite_button" />
 
     <string name="title_activity_base" translatable="false">BaseActivity</string>

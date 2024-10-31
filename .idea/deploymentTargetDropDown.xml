@@ -21,22 +21,6 @@
       <entry key="MainActivity">
         <State />
       </entry>
-      <entry key="ShoppingListActivity">
-        <State>
-          <targetSelectedWithDropDown>
-            <Target>
-              <type value="QUICK_BOOT_TARGET" />
-              <deviceKey>
-                <Key>
-                  <type value="VIRTUAL_DEVICE_PATH" />
-                  <value value="C:\Users\matsh\.android\avd\Pixel_8_Pro_API_34_2.avd" />
-                </Key>
-              </deviceKey>
-            </Target>
-          </targetSelectedWithDropDown>
-          <timeTargetWasSelectedWithDropDown value="2024-09-17T07:56:09.457959700Z" />
-        </State>
-      </entry>
       <entry key="TabbedActivity">
         <State />
       </entry>
@@ -48,12 +32,12 @@
               <deviceKey>
                 <Key>
                   <type value="VIRTUAL_DEVICE_PATH" />
-                  <value value="C:\Users\matsh\.android\avd\Pixel_8_Pro_API_34_1.avd" />
+                  <value value="C:\Users\matsh\.android\avd\Pixel_8_Pro_API_34_2_1.avd" />
                 </Key>
               </deviceKey>
             </Target>
           </targetSelectedWithDropDown>
-          <timeTargetWasSelectedWithDropDown value="2024-09-30T20:21:44.870919300Z" />
+          <timeTargetWasSelectedWithDropDown value="2024-10-30T09:10:54.530017Z" />
         </State>
       </entry>
     </value>

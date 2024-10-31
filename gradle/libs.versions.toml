@@ -28,7 +28,7 @@ firebaseDatabase = "21.0.0"
 firebaseFirestoreKtx = "25.1.0"
 firebaseStorageKtx = "21.0.0"
 navigation = "2.7.1"
-
+gson = "2.8.8"
 
 
 
@@ -70,7 +70,7 @@ firebase-storage-ktx = { group = "com.google.firebase", name = "firebase-storage
 navigation-fragment-ktx = { module = "androidx.navigation:navigation-fragment-ktx", version.ref = "navigation" }
 navigation-ui-ktx = { module = "androidx.navigation:navigation-ui-ktx", version.ref = "navigation" }
 safe-args-gradle-plugin = { module = "androidx.navigation:navigation-safe-args-gradle-plugin", version.ref = "navigation" }
-
+gson = { module = "com.google.code.gson:gson", version.ref = "gson" }
 
 [plugins]
 androidApplication = { id = "com.android.application", version.ref = "agp" }

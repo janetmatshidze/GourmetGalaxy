@@ -1,55 +1,148 @@
 package com.example.gourmetgalaxy
 
+import android.content.Context
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
+import android.widget.TextView
+import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
+import androidx.core.widget.addTextChangedListener
+import androidx.fragment.app.Fragment
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import com.google.android.material.textfield.TextInputEditText
+import com.google.gson.Gson
+import com.google.gson.reflect.TypeToken
 
-/**
- * A simple [Fragment] subclass.
- * Use the [AddIngredientsFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
 class AddIngredientsFragment : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }
-    }
+    private lateinit var ingredientAdapter: IngredientAdapter
+    private lateinit var emptyStateText: TextView
+    private val allIngredients by lazy { loadIngredients(requireContext()) }
+    private var filteredList = mutableListOf<Ingredient>()
+    private val shoppingList = mutableListOf<Ingredient>()
+    private val purchasedList = mutableListOf<Ingredient>()
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
-                              savedInstanceState: Bundle?): View? {
-        // Inflate the layout for this fragment
+    override fun onCreateView(
+        inflater: LayoutInflater, container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
+        (activity as? AppCompatActivity)?.supportActionBar?.hide()
         return inflater.inflate(R.layout.fragment_add_ingredients, container, false)
     }
 
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment AddIngredientsFragment.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic fun newInstance(param1: String, param2: String) =
-                AddIngredientsFragment().apply {
-                    arguments = Bundle().apply {
-                        putString(ARG_PARAM1, param1)
-                        putString(ARG_PARAM2, param2)
-                    }
-                }
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        emptyStateText = view.findViewById(R.id.emptyStateText)
+
+        ingredientAdapter = IngredientAdapter(
+            ingredientList = filteredList,
+            onIngredientClicked = { ingredient -> onIngredientClicked(ingredient) },
+            onPurchasedClicked = { ingredient -> onPurchasedClicked(ingredient) },
+            onListChanged = ::toggleEmptyState
+        )
+
+        val recyclerView = view.findViewById<RecyclerView>(R.id.recyclerViewIngredients)
+        recyclerView.layoutManager = LinearLayoutManager(requireContext())
+        recyclerView.adapter = ingredientAdapter
+
+        loadShoppingList()
+        loadPurchasedList()
+
+        ingredientAdapter.updateShoppingList(shoppingList)
+        ingredientAdapter.updatePurchasedList(purchasedList)
+
+        val searchView = view.findViewById<TextInputEditText>(R.id.searchView)
+        searchView.addTextChangedListener {
+            val query = it.toString()
+            filteredList = if (query.isNotEmpty()) {
+                allIngredients.filter { ingredient ->
+                    ingredient.name.contains(query, ignoreCase = true)
+                }.toMutableList()
+            } else {
+                allIngredients.toMutableList()
+            }
+            ingredientAdapter.updateShoppingList(filteredList)
+            toggleEmptyState()
+        }
+
+        toggleEmptyState()
+    }
+
+    private fun onIngredientClicked(ingredient: Ingredient) {
+        if (!shoppingList.contains(ingredient) && !purchasedList.contains(ingredient)) {
+            shoppingList.add(ingredient)
+            saveShoppingList()
+            ingredientAdapter.updateShoppingList(shoppingList)
+            toggleEmptyState()
+        }
+    }
+
+    private fun onPurchasedClicked(ingredient: Ingredient) {
+        if (shoppingList.contains(ingredient)) {
+            shoppingList.remove(ingredient)
+            purchasedList.add(ingredient)
+            saveShoppingList()
+            savePurchasedList()
+            toggleEmptyState()
+        }
+        ingredientAdapter.updatePurchasedList(purchasedList)
+    }
+
+    private fun toggleEmptyState() {
+        emptyStateText.text = when {
+            shoppingList.isEmpty() && purchasedList.isEmpty() -> "Your shopping list is empty"
+            else -> ""
+        }
+        emptyStateText.visibility = if (shoppingList.isEmpty() && purchasedList.isEmpty()) {
+            View.VISIBLE
+        } else {
+            View.GONE
+        }
+    }
+
+    private fun saveShoppingList() {
+        val prefs = requireContext().getSharedPreferences("GourmetGalaxyPrefs", Context.MODE_PRIVATE)
+        val editor = prefs.edit()
+        val gson = Gson()
+        val json = gson.toJson(shoppingList)
+        editor.putString("shoppingList", json)
+        editor.apply()
+    }
+
+    private fun savePurchasedList() {
+        val prefs = requireContext().getSharedPreferences("GourmetGalaxyPrefs", Context.MODE_PRIVATE)
+        val editor = prefs.edit()
+        val gson = Gson()
+        val json = gson.toJson(purchasedList)
+        editor.putString("purchasedList", json)
+        editor.apply()
+    }
+
+    private fun loadShoppingList() {
+        val prefs = requireContext().getSharedPreferences("GourmetGalaxyPrefs", Context.MODE_PRIVATE)
+        val gson = Gson()
+        val json = prefs.getString("shoppingList", null)
+        val type = object : TypeToken<MutableList<Ingredient>>() {}.type
+        val savedList: MutableList<Ingredient>? = gson.fromJson(json, type)
+        savedList?.let {
+            shoppingList.clear()
+            shoppingList.addAll(it)
+        }
+    }
+
+    private fun loadPurchasedList() {
+        val prefs = requireContext().getSharedPreferences("GourmetGalaxyPrefs", Context.MODE_PRIVATE)
+        val gson = Gson()
+        val json = prefs.getString("purchasedList", null)
+        val type = object : TypeToken<MutableList<Ingredient>>() {}.type
+        val savedList: MutableList<Ingredient>? = gson.fromJson(json, type)
+        savedList?.let {
+            purchasedList.clear()
+            purchasedList.addAll(it)
+        }
     }
 }
