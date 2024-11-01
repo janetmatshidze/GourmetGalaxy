@@ -137,5 +137,8 @@
     • ½ teaspoon baking soda&#10;
     • 1 teaspoon ground cinnamon&#10;
 </string>
+    <string name="phone_number">Phone</string>
+    <string name="address">Address</string>
+    <string name="save">Save</string>
 
 </resources>

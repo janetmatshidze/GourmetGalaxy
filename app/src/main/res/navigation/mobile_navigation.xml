@@ -87,6 +87,16 @@
         android:id="@+id/action_editprofileFragemnt_to_settingsFragment"
         app:destination="@+id/nav_settings" />
 
+    <action
+        android:id="@+id/action_settingsFragment_to_personaldetailsFragment"
+        app:destination="@+id/personalDetails" />
+
+    <fragment
+        android:id="@+id/personalDetails"
+        android:name="com.example.gourmetgalaxy.PersonalDetailsFragment"
+        tools:layout="@layout/fragment_personal_details"
+        />
+
     <fragment
         android:id="@+id/editProfileFragment"
         android:name="com.example.gourmetgalaxy.EditProfileFragment"
