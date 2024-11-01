@@ -35,7 +35,14 @@
         <argument
             android:name="recipeInstructions"
             app:argType="string" />
+        <argument
+            android:name="recipeRating"
+            app:argType="float" />
     </fragment>
+
+    <action
+        android:id="@+id/action_recipeDetailsFragment_to_homeFragment"
+        app:destination="@+id/nav_home" />
 
     <fragment
         android:id="@+id/nav_leaderboard"

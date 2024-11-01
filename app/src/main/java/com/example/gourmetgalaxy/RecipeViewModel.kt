@@ -1,9 +1,11 @@
 package com.example.gourmetgalaxy
 
+import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.firestore.ListenerRegistration
 
 class RecipeViewModel : ViewModel() {
     private val firestore = FirebaseFirestore.getInstance()
@@ -13,29 +15,35 @@ class RecipeViewModel : ViewModel() {
     private val _favoriteRecipes = MutableLiveData<List<Recipe>>()
     val favoriteRecipes: LiveData<List<Recipe>> get() = _favoriteRecipes
 
+    private var recipesListener: ListenerRegistration? = null
+
     init {
-        fetchRecipes() // Fetch recipes when ViewModel is initialized
+        fetchRecipes() // Fetch recipes with real-time updates
     }
 
-    fun fetchRecipes() {
-        firestore.collection("recipes")
-            .get()
-            .addOnSuccessListener { documents ->
+     fun fetchRecipes() {
+        // Listen for real-time updates in Firestore
+        recipesListener = firestore.collection("recipes")
+            .addSnapshotListener { snapshot, error ->
+                if (error != null) {
+                    Log.e("RecipeViewModel", "Error fetching recipes: ", error)
+                    return@addSnapshotListener
+                }
+
                 val recipeList = mutableListOf<Recipe>()
-                for (document in documents) {
+                snapshot?.forEach { document ->
                     val recipe = document.toObject(Recipe::class.java)
                     recipeList.add(recipe)
                 }
-                _recipes.value = recipeList // Update LiveData with the fetched recipes
-                updateFavoriteRecipes() // Update favorite recipes whenever the list changes
+                _recipes.value = recipeList
+                updateFavoriteRecipes() // Update favorites whenever recipes change
             }
     }
 
     fun toggleFavorite(recipe: Recipe) {
         recipe.isFavorite = !recipe.isFavorite
-        // Update the Firestore document to reflect the change
-        updateRecipeInFirestore(recipe)
-        updateFavoriteRecipes() // Update the favorite recipes list after toggling
+        updateFavoriteInFirestore(recipe)
+        updateFavoriteRecipes() // Refresh favorite recipes list
     }
 
     private fun updateFavoriteRecipes() {
@@ -43,15 +51,21 @@ class RecipeViewModel : ViewModel() {
         _favoriteRecipes.value = favorites // Update favorite recipes LiveData
     }
 
-    private fun updateRecipeInFirestore(recipe: Recipe) {
+    private fun updateFavoriteInFirestore(recipe: Recipe) {
         firestore.collection("recipes")
-            .document(recipe.id) // Assuming Recipe has an 'id' field
-            .set(recipe)
+            .document(recipe.id)
+            .update("isFavorite", recipe.isFavorite)
             .addOnSuccessListener {
-                // Handle successful update
+                Log.d("RecipeViewModel", "Favorite status updated for recipe: ${recipe.id}")
             }
-            .addOnFailureListener {
-                // Handle failure
+            .addOnFailureListener { e ->
+                Log.e("RecipeViewModel", "Error updating favorite status: ", e)
             }
+    }
+
+    override fun onCleared() {
+        super.onCleared()
+        // Detach the listener when ViewModel is cleared to prevent memory leaks
+        recipesListener?.remove()
     }
 }

@@ -2,6 +2,7 @@ package com.example.gourmetgalaxy
 
 import android.net.Uri
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -12,6 +13,7 @@ import android.widget.TextView
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.google.firebase.firestore.FirebaseFirestore
 
 class RecipeAdapter(
     private val recipes: List<Recipe>,
@@ -39,7 +41,7 @@ class RecipeAdapter(
         holder.recipeTitle.text = recipe.title
         holder.recipeDescription.text = recipe.description
         holder.recipeDuration.text = recipe.duration
-        holder.ratingBar.rating = 0f // Adjust as needed
+        holder.ratingBar.rating = recipe.rating
 
         // Load the image using Glide
         Glide.with(holder.itemView.context)
@@ -55,6 +57,7 @@ class RecipeAdapter(
                 putString("recipeDuration", recipe.duration)
                 putString("recipeIngredients", recipe.ingredients)
                 putString("recipeInstructions", recipe.instructions)
+                putFloat("recipeRating" ,recipe.rating)
             }
 
             holder.itemView.findNavController().navigate(
@@ -76,7 +79,23 @@ class RecipeAdapter(
                 else R.drawable.ic_bookmark_border
             )
         }
+        holder.ratingBar.setOnRatingBarChangeListener { _, rating, _ ->
+            recipe.rating = rating // Update the recipe rating
+            saveRecipeRatingToFirestore(recipe) // Save updated rating to Firestore
+        }
     }
 
     override fun getItemCount(): Int = recipes.size
+}
+
+private fun saveRecipeRatingToFirestore(recipe: Recipe) {
+    FirebaseFirestore.getInstance().collection("recipes").document(recipe.id)
+        .update("rating", recipe.rating)
+        .addOnSuccessListener {
+            // Optionally, show a success message
+        }
+        .addOnFailureListener { e ->
+            // Handle the error
+            Log.e("RecipeAdapter", "Error updating rating: ", e)
+        }
 }

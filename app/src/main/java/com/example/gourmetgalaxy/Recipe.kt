@@ -8,6 +8,7 @@ data class Recipe(
     val ingredients: String = "",
     val instructions: String = "",
     var imageUri: String? = null,
+    var rating: Float = 0.0f,
     val mealCourse: String = "",
     var isFavorite: Boolean = false // Adding isFavorite property
 )
