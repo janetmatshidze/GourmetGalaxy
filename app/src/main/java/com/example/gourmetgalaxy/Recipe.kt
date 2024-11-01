@@ -8,6 +8,6 @@ data class Recipe(
     val ingredients: String = "",
     val instructions: String = "",
     var imageUri: String? = null,
-    val mealCourse: String = ""
-
+    val mealCourse: String = "",
+    var isFavorite: Boolean = false // Adding isFavorite property
 )

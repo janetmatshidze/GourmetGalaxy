@@ -1,6 +1,5 @@
 package com.example.gourmetgalaxy
 
-import RecipeViewModel
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -35,49 +34,31 @@ class HomeFragment : Fragment() {
             .requestIdToken(getString(R.string.default_web_client_id))
             .requestEmail()
             .build()
-
-        // Use requireContext() to get the appropriate context
         mGoogleSignInClient = GoogleSignIn.getClient(requireContext(), gso)
 
         // Initialize ViewModel
         viewModel = ViewModelProvider(requireActivity()).get(RecipeViewModel::class.java)
 
-        // Set up RecyclerView with LinearLayoutManager (single column)
+        // Set up RecyclerView
         val recyclerView = view.findViewById<RecyclerView>(R.id.recipesRecyclerView)
-        val layoutManager = LinearLayoutManager(requireContext()) // Single column
-        recyclerView.layoutManager = layoutManager
+        recyclerView.layoutManager = LinearLayoutManager(requireContext())
 
-        // Fetch recipes when the fragment is created
-        viewModel.fetchRecipes()
-
-        // Observe the recipes and update the adapter
         viewModel.recipes.observe(viewLifecycleOwner) { recipes ->
-            // Pass lambdas to handle favorite and bookmark button clicks
-            recipeAdapter = RecipeAdapter(recipes,
-                onFavoriteClick = { recipe -> handleFavoriteClick(recipe) },
-            )
+            recipeAdapter = RecipeAdapter(recipes) { recipe ->
+                viewModel.toggleFavorite(recipe)
+            }
             recyclerView.adapter = recipeAdapter
         }
 
-        // Display the user's name
         val textView = view.findViewById<TextView>(R.id.name)
         val user = mAuth.currentUser
-
-        if (user != null) {
-            val userName = user.displayName
-            textView.text = "Welcome, $userName"
-        } else {
-            // Handle the case where the user is not signed in
-            textView.text = "Welcome, Guest"
-        }
+        textView.text = "Welcome, ${user?.displayName ?: "Guest"}"
 
         return view
     }
 
-    private fun handleFavoriteClick(recipe: Recipe) {
-        // Add logic to handle favorite button clicks here
-        // For example, toggle favorite status and update the UI
+    override fun onResume() {
+        super.onResume()
+        viewModel.fetchRecipes() // Fetch recipes again when returning to this fragment
     }
-
-
 }

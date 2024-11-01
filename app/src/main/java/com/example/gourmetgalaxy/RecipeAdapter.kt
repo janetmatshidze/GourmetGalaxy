@@ -15,8 +15,7 @@ import com.bumptech.glide.Glide
 
 class RecipeAdapter(
     private val recipes: List<Recipe>,
-    private val onFavoriteClick: (Recipe) -> Unit,
-
+    private val onFavoriteClick: (Recipe) -> Unit
 ) : RecyclerView.Adapter<RecipeAdapter.RecipeViewHolder>() {
 
     inner class RecipeViewHolder(view: View) : RecyclerView.ViewHolder(view) {
@@ -26,7 +25,6 @@ class RecipeAdapter(
         val recipeDuration: TextView = view.findViewById(R.id.recipeDuration)
         val ratingBar: RatingBar = view.findViewById(R.id.ratingBar)
         val favoriteButton: ImageButton = view.findViewById(R.id.favoriteButton)
-
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecipeViewHolder {
@@ -41,7 +39,7 @@ class RecipeAdapter(
         holder.recipeTitle.text = recipe.title
         holder.recipeDescription.text = recipe.description
         holder.recipeDuration.text = recipe.duration
-        holder.ratingBar.rating = 0f
+        holder.ratingBar.rating = 0f // Adjust as needed
 
         // Load the image using Glide
         Glide.with(holder.itemView.context)
@@ -64,13 +62,20 @@ class RecipeAdapter(
             )
         }
 
-        // Handle favorite button clicks
+        // Set the favorite button icon based on the recipe's favorite status
+        holder.favoriteButton.setImageResource(
+            if (recipe.isFavorite) R.drawable.ic_bookmark_border2
+            else R.drawable.ic_bookmark_border
+        )
+
         holder.favoriteButton.setOnClickListener {
             onFavoriteClick(recipe)
-            holder.favoriteButton.setImageResource(R.drawable.ic_bookmark_border2)
-
+            // Update the button icon after clicking
+            holder.favoriteButton.setImageResource(
+                if (recipe.isFavorite) R.drawable.ic_bookmark_border2
+                else R.drawable.ic_bookmark_border
+            )
         }
-
     }
 
     override fun getItemCount(): Int = recipes.size
