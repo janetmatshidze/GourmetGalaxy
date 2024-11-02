@@ -140,5 +140,12 @@
     <string name="phone_number">Phone</string>
     <string name="address">Address</string>
     <string name="save">Save</string>
+    <string name="frequently_asked_questions">Frequently Asked Questions</string>
+    <string name="FAQs">• How can I add a recipe to my favorites?\n Tap the bookmark icon on any recipe to add it to your favorites list.\n\n• How do I rate a recipe?\n Open the recipe details to find the rating option.\n\n• Can I access my favorites offline?\n Yes, the app now supports an offline feature for favorites. Your favorited recipes will remain accessible even when you are offline.</string>
+    <string name="account_and_login_issues">Account and Login Issues</string>
+    <string name="Account_Issues">• Having trouble logging in?\n Try resetting your password on the login page.\n\n• How can I set up fingerprint authentication?\n Go to settings to enable biometric authentication if supported.</string>
+    <string name="technical_support_and_contact_information">Technical Support and Contact Information</string>
+    <string name="support_gourmetgalaxy_com">support@gourmetgalaxy.com</string>
+    <string name="phone">+27731681659</string>
 
 </resources>

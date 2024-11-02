@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.ImageButton
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.google.android.material.textfield.TextInputEditText
@@ -85,14 +86,14 @@ class PersonalDetailsFragment : Fragment() {
                 "phone" to phone,
                 "address" to address
             )
-
             firestore.collection("users").document(userId).set(userData)
                 .addOnSuccessListener {
-                    // Data successfully saved (optional: show a confirmation)
+                    Toast.makeText(requireContext(), "Saved successfully", Toast.LENGTH_SHORT).show()
                 }
                 .addOnFailureListener { exception ->
-                    // Handle any errors (optional)
+                    Toast.makeText(requireContext(), "Failed to save data", Toast.LENGTH_SHORT).show()
                 }
         }
     }
 }
+

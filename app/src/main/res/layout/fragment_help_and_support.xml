@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp"
+    android:background="@android:color/white">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingBottom="16dp">
+
+        <ImageButton
+            android:id="@+id/helpBackButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/img_arrow_left"
+            android:background="?attr/selectableItemBackgroundBorderless" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="20dp"
+            android:fontFamily="@font/inter"
+            android:text="@string/help_amp_support"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/faqHeaderTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/frequently_asked_questions"
+            android:textSize="20sp"
+            android:fontFamily="@font/inter"
+            android:textStyle="bold"
+            android:textColor="@color/teal"
+            android:paddingBottom="8dp" />
+
+        <TextView
+            android:id="@+id/textViewFaq"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="16sp"
+            android:fontFamily="@font/inter"
+            android:textColor="#666666"
+            android:lineSpacingExtra="4dp"
+            android:paddingBottom="16dp"
+            android:text="@string/FAQs" />
+
+        <!-- Account Issues Section -->
+        <TextView
+            android:id="@+id/accountIssuesHeaderTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/account_and_login_issues"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:fontFamily="@font/inter"
+            android:textColor="@color/teal"
+            android:paddingBottom="8dp" />
+
+        <TextView
+            android:id="@+id/textViewAccountIssues"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="16sp"
+            android:textColor="#666666"
+            android:lineSpacingExtra="4dp"
+            android:paddingBottom="16dp"
+            android:fontFamily="@font/inter"
+            android:text="@string/Account_Issues" />
+
+        <TextView
+            android:id="@+id/contactSupportHeaderTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/technical_support_and_contact_information"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:fontFamily="@font/inter"
+            android:textColor="@color/teal"
+            android:paddingBottom="8dp" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:paddingBottom="8dp">
+
+            <ImageView
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:src="@drawable/img_email"
+                android:contentDescription="Email Icon"
+                android:paddingEnd="8dp"/>
+
+            <TextView
+                android:id="@+id/emailTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/support_gourmetgalaxy_com"
+                android:textSize="16sp"
+                android:fontFamily="@font/inter"
+                android:textColor="@color/teal"
+                android:autoLink="email"
+                android:clickable="true"
+                android:focusable="true"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical">
+
+            <ImageView
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:src="@drawable/img_phone"
+                android:contentDescription="Phone Icon"
+                android:paddingEnd="8dp"/>
+
+            <TextView
+                android:id="@+id/phoneTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/phone"
+                android:textSize="16sp"
+                android:fontFamily="@font/inter"
+                android:textColor="@android:color/holo_blue_dark"
+                android:clickable="true"
+                android:focusable="true"/>
+        </LinearLayout>
+
+    </LinearLayout>
+</ScrollView>

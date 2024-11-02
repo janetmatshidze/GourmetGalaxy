@@ -35,9 +35,9 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
             android:text="@string/fingerprint"
+           android:textStyle="bold"
             android:fontFamily="@font/inter"
-            android:textColor="@color/black"
-            android:textSize="16sp" />
+            android:textSize="20sp" />
     </LinearLayout>
 
     <View

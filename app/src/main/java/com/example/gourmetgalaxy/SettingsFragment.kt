@@ -53,6 +53,7 @@ class SettingsFragment : Fragment() {
         val editprofileBtn: View = view.findViewById(R.id.editprofileImageBtn)
         val deleteAccountBtn: TextView = view.findViewById(R.id.delete_account)
         val personalDetailsLayout:View=view.findViewById(R.id.personal)
+        val helpAndSupportLayout:View=view.findViewById(R.id.helplayout)
 
         // Get the current user
         val user = mAuth.currentUser
@@ -121,6 +122,10 @@ class SettingsFragment : Fragment() {
 
         personalDetailsLayout.setOnClickListener {
             findNavController().navigate(R.id.action_settingsFragment_to_personaldetailsFragment)
+        }
+
+        helpAndSupportLayout.setOnClickListener {
+            findNavController().navigate(R.id.action_settingsFragment_to_helpandsupportFragment)
         }
         val signoutBtn = view.findViewById<TextView>(R.id.logout_button)
         signoutBtn.setOnClickListener {

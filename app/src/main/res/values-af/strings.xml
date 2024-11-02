@@ -120,5 +120,15 @@
     • ½ teelepel koeksoda&#10;
     • 1 teelepel kaneel&#10;
 </string>
+    <string name="phone_number">Foon</string>
+    <string name="address">Adres</string>
+    <string name="save">Stoor</string>
+    <string name="frequently_asked_questions">Gereelde Vrae</string>
+    <string name="FAQs">• Hoe voeg ek \'n resep by my gunstelinge?\n Tik op die boekmerk-ikoon op enige resep om dit by jou gunstelinge-lys te voeg.\n\n• Hoe gee ek \'n gradering vir \'n resep?\n Maak die resepbesonderhede oop om die graderingsopsie te vind.\n\n• Kan ek my gunstelinge vanlyn toegang hê?\n Ja, die toepassing ondersteun nou 'n vanlyn funksie vir gunstelinge. Jou gunsteling resepte sal beskikbaar bly selfs wanneer jy vanlyn is.</string>
+    <string name="account_and_login_issues">Rekening- en Aanmeldprobleme</string>
+    <string name="Account_Issues">• Het jy probleme met aanmelding?\n Probeer om jou wagwoord op die aanmeldbladsy te herstel.\n\n• Hoe stel ek vingerafdruk-outeurisasie op?\n Gaan na instellings om biometriese outeurisasie in te skakel as dit ondersteun word.</string>
+    <string name="technical_support_and_contact_information">Tegniese Ondersteuning en Kontakinligting</string>
+    <string name="support_gourmetgalaxy_com">support@gourmetgalaxy.com</string>
+    <string name="phone">+27731681659</string>
 
 </resources>

@@ -91,12 +91,20 @@
         android:id="@+id/action_settingsFragment_to_personaldetailsFragment"
         app:destination="@+id/personalDetails" />
 
+    <action
+        android:id="@+id/action_settingsFragment_to_helpandsupportFragment"
+        app:destination="@+id/helpFragment" />
+
     <fragment
         android:id="@+id/personalDetails"
         android:name="com.example.gourmetgalaxy.PersonalDetailsFragment"
         tools:layout="@layout/fragment_personal_details"
         />
 
+    <fragment
+        android:id="@+id/helpFragment"
+        android:name="com.example.gourmetgalaxy.HelpAndSupportFragment"
+        tools:layout="@layout/fragment_help_and_support" />
     <fragment
         android:id="@+id/editProfileFragment"
         android:name="com.example.gourmetgalaxy.EditProfileFragment"

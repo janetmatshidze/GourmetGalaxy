@@ -18,17 +18,18 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent">
 
-        <!-- Toolbar Title -->
         <TextView
             android:id="@+id/tv_toolbar_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:drawableStart="@drawable/img_bell"
-            android:layout_marginStart="50dp"
-            android:drawablePadding="20dp"
-            android:textFontWeight="400"
+            android:drawableStart="@drawable/img_bell2"
+            android:layout_marginStart="80dp"
+            android:drawablePadding="10dp"
+            android:textSize="20sp"
+            android:textStyle="bold"
             android:text="@string/notifications_fragment"
             android:fontFamily="@font/inter"
+            android:textColor="@color/darkgrey"
             android:textAppearance="?attr/textAppearanceHeadline6" />
 
     </com.google.android.material.appbar.MaterialToolbar>
@@ -69,6 +70,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/new_recipes"
+                android:fontFamily="@font/inter"
                 android:textAppearance="?attr/textAppearanceSubtitle1"
                 android:layout_marginBottom="8dp"/>
 
@@ -77,6 +79,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/get_notified_when_new_recipes_are_added"
+                android:fontFamily="@font/inter"
                 android:textAppearance="?attr/textAppearanceBody2"
                 android:layout_marginBottom="16dp"/>
 
@@ -98,6 +101,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/recipe_ratings"
+                android:fontFamily="@font/inter"
                 android:textAppearance="?attr/textAppearanceSubtitle1"
                 android:layout_marginBottom="8dp" />
 
@@ -106,6 +110,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/get_notified_when_your_favorite_recipes_are_rated"
+                android:fontFamily="@font/inter"
                 android:textAppearance="?attr/textAppearanceBody2"
                 android:layout_marginBottom="16dp" />
 
