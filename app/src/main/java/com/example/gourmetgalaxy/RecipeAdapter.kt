@@ -16,10 +16,14 @@ import com.bumptech.glide.Glide
 import com.google.firebase.firestore.FirebaseFirestore
 
 class RecipeAdapter(
-    private val recipes: List<Recipe>,
+    private var recipes: List<Recipe>,
     private val onFavoriteClick: (Recipe) -> Unit
 ) : RecyclerView.Adapter<RecipeAdapter.RecipeViewHolder>() {
 
+    fun updateRecipes(newRecipes: List<Recipe>) {
+        recipes = newRecipes
+        notifyDataSetChanged() // Notify that data has changed to refresh the list
+    }
     inner class RecipeViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         val recipeImage: ImageView = view.findViewById(R.id.recipeImage)
         val recipeTitle: TextView = view.findViewById(R.id.recipeTitle)
@@ -48,6 +52,12 @@ class RecipeAdapter(
             .load(recipe.imageUri?.let { Uri.parse(it) })
             .into(holder.recipeImage)
 
+        // Set the favorite button icon based on the recipe's favorite status
+        holder.favoriteButton.setImageResource(
+            if (recipe.isFavorite) R.drawable.ic_bookmark_border2
+            else R.drawable.ic_bookmark_border
+        )
+
         // Handle item click to navigate to recipe details
         holder.itemView.setOnClickListener {
             val bundle = Bundle().apply {
@@ -57,7 +67,7 @@ class RecipeAdapter(
                 putString("recipeDuration", recipe.duration)
                 putString("recipeIngredients", recipe.ingredients)
                 putString("recipeInstructions", recipe.instructions)
-                putFloat("recipeRating" ,recipe.rating)
+                putFloat("recipeRating", recipe.rating)
             }
 
             holder.itemView.findNavController().navigate(
@@ -65,20 +75,18 @@ class RecipeAdapter(
             )
         }
 
-        // Set the favorite button icon based on the recipe's favorite status
-        holder.favoriteButton.setImageResource(
-            if (recipe.isFavorite) R.drawable.ic_bookmark_border2
-            else R.drawable.ic_bookmark_border
-        )
-
+        // Handle favorite button click, delegating the action to the ViewModel
         holder.favoriteButton.setOnClickListener {
-            onFavoriteClick(recipe)
-            // Update the button icon after clicking
+            onFavoriteClick(recipe) // Toggle favorite status in ViewModel
+
+            // Update the button icon based on the new favorite status
             holder.favoriteButton.setImageResource(
                 if (recipe.isFavorite) R.drawable.ic_bookmark_border2
                 else R.drawable.ic_bookmark_border
             )
         }
+
+        // Handle rating bar change
         holder.ratingBar.setOnRatingBarChangeListener { _, rating, _ ->
             recipe.rating = rating // Update the recipe rating
             saveRecipeRatingToFirestore(recipe) // Save updated rating to Firestore
@@ -88,14 +96,14 @@ class RecipeAdapter(
     override fun getItemCount(): Int = recipes.size
 }
 
+// Function to save the updated rating to Firestore
 private fun saveRecipeRatingToFirestore(recipe: Recipe) {
     FirebaseFirestore.getInstance().collection("recipes").document(recipe.id)
         .update("rating", recipe.rating)
         .addOnSuccessListener {
-            // Optionally, show a success message
+            Log.d("RecipeAdapter", "Rating updated successfully")
         }
         .addOnFailureListener { e ->
-            // Handle the error
             Log.e("RecipeAdapter", "Error updating rating: ", e)
         }
 }

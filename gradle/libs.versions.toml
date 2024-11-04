@@ -27,6 +27,8 @@ firebaseDatabaseKtx = "21.0.0"
 firebaseDatabase = "21.0.0"
 firebaseFirestoreKtx = "25.1.0"
 firebaseStorageKtx = "21.0.0"
+firebaseMessaging = "23.1.0" # or latest stable version
+firebaseInAppMessaging = "20.1.0" # Use the latest version available if different
 navigation = "2.7.1"
 gson = "2.8.8"
 
@@ -67,10 +69,13 @@ firebase-database-ktx = { group = "com.google.firebase", name = "firebase-databa
 firebase-database = { group = "com.google.firebase", name = "firebase-database", version.ref = "firebaseDatabase" }
 firebase-firestore-ktx = { group = "com.google.firebase", name = "firebase-firestore-ktx", version.ref = "firebaseFirestoreKtx" }
 firebase-storage-ktx = { group = "com.google.firebase", name = "firebase-storage-ktx", version.ref = "firebaseStorageKtx" }
+firebase-messaging = { group = "com.google.firebase", name = "firebase-messaging", version.ref = "firebaseMessaging" }
 navigation-fragment-ktx = { module = "androidx.navigation:navigation-fragment-ktx", version.ref = "navigation" }
 navigation-ui-ktx = { module = "androidx.navigation:navigation-ui-ktx", version.ref = "navigation" }
 safe-args-gradle-plugin = { module = "androidx.navigation:navigation-safe-args-gradle-plugin", version.ref = "navigation" }
 gson = { module = "com.google.code.gson:gson", version.ref = "gson" }
+firebase-inapp-messaging-display = { group = "com.google.firebase", name = "firebase-inappmessaging-display", version.ref = "firebaseInAppMessaging" }
+
 
 [plugins]
 androidApplication = { id = "com.android.application", version.ref = "agp" }

@@ -1,5 +1,4 @@
-<resources>
-    <string name="app_name">GourmetGalaxie</string>
+<resources xmlns:tools="http://schemas.android.com/tools">
     <string name="hello_blank_fragment">Hallo blinde fragment</string>
     <string name="ready_to_cook_something_amazing">Reg om iets wonderliks te kook?</string>
     <string name="dive_into_our_diverse_recipe_library_and_unleash_your_inner_chef">Duik in ons diverse resepbiblioteek en ontsluit jou innerlike sjef!</string>
@@ -24,8 +23,6 @@
     <string name="attachment_title">Laai inkomende aanhangsels af</string>
     <string name="attachment_summary_on">Laai outomaties aanhangsels vir inkomende e-posse af</string>
     <string name="attachment_summary_off">Laai slegs aanhangsels af wanneer dit handmatig aangevra word</string>
-    <string name="favorite_button" />
-    <string name="title_activity_base" translatable="false">BasisAktiwiteit</string>
     <string name="search_ingredients">Soek bestanddele</string>
     <string name="add_a_new_recipe">Voeg \'n Nuwe Resep by</string>
     <string name="upload_a_photo">Laai \'n foto op</string>
@@ -124,7 +121,6 @@
     <string name="address">Adres</string>
     <string name="save">Stoor</string>
     <string name="frequently_asked_questions">Gereelde Vrae</string>
-    <string name="FAQs">• Hoe voeg ek \'n resep by my gunstelinge?\n Tik op die boekmerk-ikoon op enige resep om dit by jou gunstelinge-lys te voeg.\n\n• Hoe gee ek \'n gradering vir \'n resep?\n Maak die resepbesonderhede oop om die graderingsopsie te vind.\n\n• Kan ek my gunstelinge vanlyn toegang hê?\n Ja, die toepassing ondersteun nou 'n vanlyn funksie vir gunstelinge. Jou gunsteling resepte sal beskikbaar bly selfs wanneer jy vanlyn is.</string>
     <string name="account_and_login_issues">Rekening- en Aanmeldprobleme</string>
     <string name="Account_Issues">• Het jy probleme met aanmelding?\n Probeer om jou wagwoord op die aanmeldbladsy te herstel.\n\n• Hoe stel ek vingerafdruk-outeurisasie op?\n Gaan na instellings om biometriese outeurisasie in te skakel as dit ondersteun word.</string>
     <string name="technical_support_and_contact_information">Tegniese Ondersteuning en Kontakinligting</string>

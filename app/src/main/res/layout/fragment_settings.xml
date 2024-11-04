@@ -117,35 +117,7 @@
                 </LinearLayout>
 
 
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:padding="16dp"
-                    android:clickable="true"
-                    android:focusable="true"
-                    android:background="?attr/selectableItemBackground">
 
-                    <ImageView
-                        android:layout_width="24dp"
-                        android:layout_height="24dp"
-                        android:src="@drawable/img_info" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center_vertical"
-                        android:layout_weight="1"
-                        android:textSize="16sp"
-                        android:layout_marginStart="16dp"
-                        android:text="@string/information_amp_permissions" />
-
-                    <ImageView
-                        android:layout_width="24dp"
-                        android:layout_height="24dp"
-                        android:layout_gravity="center_vertical"
-                        android:src="@drawable/img_arrowright" />
-                </LinearLayout>
 
                 <LinearLayout
                     android:id="@+id/fingerprintlayout"
@@ -201,38 +173,6 @@
                 android:layout_height="wrap_content"
                 android:background="@drawable/ic_teal_border"
                 android:orientation="vertical">
-
-                <!-- Personal details -->
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:padding="16dp"
-                    android:clickable="true"
-                    android:focusable="true"
-                    android:background="?attr/selectableItemBackground">
-
-                    <ImageView
-                        android:layout_width="24dp"
-                        android:layout_height="24dp"
-                        android:src="@drawable/img_lock" />
-
-                    <TextView
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:textSize="16sp"
-                        android:layout_gravity="center_vertical"
-                        android:layout_marginStart="16dp"
-                        android:text="@string/account_privacy" />
-
-                    <ImageView
-                        android:layout_width="24dp"
-                        android:layout_height="24dp"
-                        android:layout_gravity="center_vertical"
-                        android:src="@drawable/img_arrowright" />
-                </LinearLayout>
-
 
                 <LinearLayout
                     android:id="@+id/notificationslayout"

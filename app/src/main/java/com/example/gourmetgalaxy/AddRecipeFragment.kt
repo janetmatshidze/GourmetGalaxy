@@ -3,6 +3,7 @@ package com.example.gourmetgalaxy
 import android.Manifest
 import android.app.AlertDialog
 import android.app.TimePickerDialog
+import android.content.Context
 import android.content.pm.PackageManager
 import android.net.Uri
 import android.os.Bundle
@@ -188,11 +189,19 @@ class AddRecipeFragment : Fragment() {
             .set(recipe)
             .addOnSuccessListener {
                 Toast.makeText(requireContext(), "Recipe added successfully", Toast.LENGTH_SHORT).show()
+                saveNotification("New recipe added: ${recipe.title}") // Save notification
                 findNavController().navigateUp() // Navigate back to HomeFragment
             }
             .addOnFailureListener { e ->
                 Toast.makeText(requireContext(), "Failed to add recipe: ${e.message}", Toast.LENGTH_SHORT).show()
             }
+    }
+
+    private fun saveNotification(message: String) {
+        val preferences = requireActivity().getSharedPreferences("NotificationPrefs", Context.MODE_PRIVATE)
+        val notifications = preferences.getStringSet("notifications", mutableSetOf()) ?: mutableSetOf()
+        notifications.add(message)
+        preferences.edit().putStringSet("notifications", notifications).apply()
     }
 
     companion object {

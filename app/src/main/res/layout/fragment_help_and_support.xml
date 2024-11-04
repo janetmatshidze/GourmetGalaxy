@@ -49,7 +49,7 @@
             android:textColor="#666666"
             android:lineSpacingExtra="4dp"
             android:paddingBottom="16dp"
-            android:text="@string/FAQs" />
+            android:text="•How can I add a recipe to my favorites?\n Tap the bookmark icon on any recipe to add it to your favorites list.\n\n• How do I rate a recipe?\n Open the recipe details to find the rating option.\n\n• Can I access my favorites offline?\n Yes, the app now supports an offline feature for favorites. Your favorited recipes will remain accessible even when you are offline." />
 
         <!-- Account Issues Section -->
         <TextView

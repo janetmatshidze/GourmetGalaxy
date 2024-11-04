@@ -83,6 +83,8 @@ dependencies {
     implementation (libs.gson)
     implementation(libs.navigation.fragment.ktx)
     implementation(libs.navigation.ui.ktx)
+    implementation(libs.firebase.messaging)
+    implementation(libs.firebase.inapp.messaging.display)
     implementation("de.hdodenhof:circleimageview:3.1.0")
     implementation("androidx.biometric:biometric:1.1.0")
     annotationProcessor(libs.glide.compiler)

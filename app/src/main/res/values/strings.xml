@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">GourmetGalaxy</string>
+    <string name="app_name" translatable="false">GourmetGalaxy</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="ready_to_cook_something_amazing">Ready to cook something amazing?</string>
     <string name="dive_into_our_diverse_recipe_library_and_unleash_your_inner_chef">Dive into our diverse recipe library and unleash your inner chef!</string>
@@ -39,8 +39,6 @@
     <string name="facebook_app_secret" translatable="false">609ff6cfd6d653c6c1cf993eb6a9eb64</string>
     <string name="facebook_client_token" translatable="false">24b48460406420ebfb1f4edb0a67a942</string>
     <string name="fb_login_protocol_scheme" translatable="false">fb2090178794709663</string>
-
-    <string name="favorite_button" />
 
     <string name="title_activity_base" translatable="false">BaseActivity</string>
     <string name="search_ingredients">Search ingredients</string>
@@ -141,7 +139,6 @@
     <string name="address">Address</string>
     <string name="save">Save</string>
     <string name="frequently_asked_questions">Frequently Asked Questions</string>
-    <string name="FAQs">• How can I add a recipe to my favorites?\n Tap the bookmark icon on any recipe to add it to your favorites list.\n\n• How do I rate a recipe?\n Open the recipe details to find the rating option.\n\n• Can I access my favorites offline?\n Yes, the app now supports an offline feature for favorites. Your favorited recipes will remain accessible even when you are offline.</string>
     <string name="account_and_login_issues">Account and Login Issues</string>
     <string name="Account_Issues">• Having trouble logging in?\n Try resetting your password on the login page.\n\n• How can I set up fingerprint authentication?\n Go to settings to enable biometric authentication if supported.</string>
     <string name="technical_support_and_contact_information">Technical Support and Contact Information</string>

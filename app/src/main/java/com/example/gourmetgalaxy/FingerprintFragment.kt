@@ -128,7 +128,7 @@ class FingerprintFragment : Fragment() {
     private fun lockApp() {
         val prefs = requireContext().getSharedPreferences("app_lock_prefs", Context.MODE_PRIVATE)
         with(prefs.edit()) {
-            putBoolean("is_app_locked", true) 
+            putBoolean("is_app_locked", true)
             apply()
         }
     }

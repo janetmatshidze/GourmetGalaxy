@@ -49,7 +49,6 @@
                         android:layout_width="48dp"
                         android:layout_height="48dp"
                         android:background="?attr/selectableItemBackgroundBorderless"
-                        android:contentDescription="@string/favorite_button"
                         android:padding="10dp"
                         android:src="@drawable/ic_bookmark_border" />
                 </FrameLayout>

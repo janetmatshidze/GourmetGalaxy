@@ -37,12 +37,15 @@ class MainActivity : BaseActivity() {
         if (isFingerprintAvailable()) {
             setupBiometricPrompt()
         } else {
-            Toast.makeText(this, "Please enroll a fingerprint in settings.", Toast.LENGTH_LONG).show()
+            Toast.makeText(this, "Please enroll a fingerprint in settings.", Toast.LENGTH_LONG)
+                .show()
         }
 
         val imageButton = findViewById<ImageButton>(R.id.imageButton)
         imageButton.setOnClickListener {
-            Log.d("MainActivity", "ImageButton clicked!")
+            val intent = Intent(this, HomeActivity::class.java)
+            startActivity(intent)
+            Log.d("MainActivity", "Navigated to HomeActivity!")
         }
     }
 

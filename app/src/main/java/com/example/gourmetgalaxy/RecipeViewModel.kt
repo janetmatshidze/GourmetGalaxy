@@ -9,6 +9,7 @@ import com.google.firebase.firestore.ListenerRegistration
 
 class RecipeViewModel : ViewModel() {
     private val firestore = FirebaseFirestore.getInstance()
+
     private val _recipes = MutableLiveData<List<Recipe>>()
     val recipes: LiveData<List<Recipe>> get() = _recipes
 
@@ -18,11 +19,10 @@ class RecipeViewModel : ViewModel() {
     private var recipesListener: ListenerRegistration? = null
 
     init {
-        fetchRecipes() // Fetch recipes with real-time updates
+        fetchRecipes() // Start real-time updates
     }
 
      fun fetchRecipes() {
-        // Listen for real-time updates in Firestore
         recipesListener = firestore.collection("recipes")
             .addSnapshotListener { snapshot, error ->
                 if (error != null) {
@@ -30,25 +30,25 @@ class RecipeViewModel : ViewModel() {
                     return@addSnapshotListener
                 }
 
-                val recipeList = mutableListOf<Recipe>()
-                snapshot?.forEach { document ->
-                    val recipe = document.toObject(Recipe::class.java)
-                    recipeList.add(recipe)
-                }
+                val recipeList = snapshot?.mapNotNull { document ->
+                    document.toObject(Recipe::class.java).apply {
+                        id = document.id // Ensure ID is set
+                    }
+                } ?: emptyList()
+
                 _recipes.value = recipeList
-                updateFavoriteRecipes() // Update favorites whenever recipes change
+                updateFavoriteRecipes()
             }
     }
 
     fun toggleFavorite(recipe: Recipe) {
         recipe.isFavorite = !recipe.isFavorite
         updateFavoriteInFirestore(recipe)
-        updateFavoriteRecipes() // Refresh favorite recipes list
+        updateFavoriteRecipes()
     }
 
     private fun updateFavoriteRecipes() {
-        val favorites = _recipes.value?.filter { it.isFavorite } ?: emptyList()
-        _favoriteRecipes.value = favorites // Update favorite recipes LiveData
+        _favoriteRecipes.value = _recipes.value?.filter { it.isFavorite }
     }
 
     private fun updateFavoriteInFirestore(recipe: Recipe) {
@@ -63,9 +63,21 @@ class RecipeViewModel : ViewModel() {
             }
     }
 
+    fun updateRecipeRating(recipe: Recipe, newRating: Float) {
+        recipe.rating = newRating
+        firestore.collection("recipes")
+            .document(recipe.id)
+            .update("rating", newRating)
+            .addOnSuccessListener {
+                Log.d("RecipeViewModel", "Rating updated for recipe: ${recipe.id}")
+            }
+            .addOnFailureListener { e ->
+                Log.e("RecipeViewModel", "Error updating rating: ", e)
+            }
+    }
+
     override fun onCleared() {
         super.onCleared()
-        // Detach the listener when ViewModel is cleared to prevent memory leaks
         recipesListener?.remove()
     }
 }

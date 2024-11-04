@@ -1,5 +1,4 @@
 <resources>
-    <string name="app_name">I-Gourmet Galaxy</string>
     <string name="hello_blank_fragment">Sawubona i-fragment engaphelele</string>
     <string name="ready_to_cook_something_amazing">Usemahlweni kokupheka okuthile okuhle?</string>
     <string name="dive_into_our_diverse_recipe_library_and_unleash_your_inner_chef">Dabula emkhakheni wethu wezindlela zokupheka ezahlukahlukene futhi uvule umphefumulo wakho we-shef!</string>
@@ -24,8 +23,6 @@
     <string name="attachment_title">Landa Iziphakamiso Ezifikayo</string>
     <string name="attachment_summary_on">Landa ngokuzenzakalelayo iziphakamiso zemi-imeyili efikayo</string>
     <string name="attachment_summary_off">Landa iziphakamiso kuphela uma ucela ngezandla</string>
-    <string name="favorite_button" />
-    <string name="title_activity_base" translatable="false">Umsebenzi Osisekelweni</string>
     <string name="search_ingredients">Sesha Izithako</string>
     <string name="add_a_new_recipe">Faka Isinyathelo Esisha</string>
     <string name="upload_a_photo">Layisha Isithombe</string>
@@ -124,7 +121,6 @@
     <string name="address">Ikheli</string>
     <string name="save">Londoloza</string>
     <string name="frequently_asked_questions">Imibuzo Ebuzwa Kaningi</string>
-    <string name="FAQs">• Ngiyengeza kanjani iresiphi kuzintandokazi zami?\n Thepha isithonjana sebukhoma kunoma iyiphi iresiphi ukuze uyifake ohlwini lwezintandokazi zakho.\n\n• Ngingayilinganisa kanjani iresiphi?\n Vula imininingwane yeresiphi ukuze uthole inketho yokulinganisa.\n\n• Ngingakwazi ukufinyelela ezintandokazini zami ngingaxhunyiwe ku-inthanethi?\n Yebo, uhlelo manje selusekela isici sokusebenza ngaphandle kwe-inthanethi kwezintandokazi. Izintandokazi zakho ziresephethi zizohlala zitholakala ngisho noma ungaxhunyiwe ku-inthanethi.</string>
     <string name="account_and_login_issues">Izinkinga Zokungena Ne-Akhawunti</string>
     <string name="Account_Issues">• Unezinkinga zokungena ngemvume?\n Zama ukubuyisela kabusha iphasiwedi yakho ekhasini lokungena ngemvume.\n\n• Ngingasetha kanjani ukufakazela ubuqiniso besithupha?\n Hamba kuzilungiselelo ukuze uvule ukufakazela ubuqiniso bomzimba uma sekusekelwa.</string>
     <string name="technical_support_and_contact_information">Ukusekela Kwezobuchwepheshe Kanye Nolwazi Lokuxhumana</string>

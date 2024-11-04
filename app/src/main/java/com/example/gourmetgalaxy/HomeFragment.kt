@@ -1,5 +1,6 @@
 package com.example.gourmetgalaxy
 
+import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -43,22 +44,36 @@ class HomeFragment : Fragment() {
         val recyclerView = view.findViewById<RecyclerView>(R.id.recipesRecyclerView)
         recyclerView.layoutManager = LinearLayoutManager(requireContext())
 
+        // Initialize the adapter once and set it to the RecyclerView
+        recipeAdapter = RecipeAdapter(emptyList()) { recipe ->
+            viewModel.toggleFavorite(recipe)
+        }
+        recyclerView.adapter = recipeAdapter
+
+        // Observe the recipes list and update the adapter
         viewModel.recipes.observe(viewLifecycleOwner) { recipes ->
-            recipeAdapter = RecipeAdapter(recipes) { recipe ->
-                viewModel.toggleFavorite(recipe)
+            recipes?.let {
+                recipeAdapter.updateRecipes(it)
             }
-            recyclerView.adapter = recipeAdapter
         }
 
+        // Display the user's name in the TextView
         val textView = view.findViewById<TextView>(R.id.name)
         val user = mAuth.currentUser
         textView.text = "Welcome, ${user?.displayName ?: "Guest"}"
 
-        return view
+        return view // Moved to the end of the method
     }
 
-    override fun onResume() {
-        super.onResume()
-        viewModel.fetchRecipes() // Fetch recipes again when returning to this fragment
+    private fun onRecipeRated(recipe: Recipe) {
+        // This method will be called when a recipe is rated
+        saveNotification("Recipe rated: ${recipe.title}") // Save notification when a recipe is rated
+    }
+
+    private fun saveNotification(message: String) {
+        val preferences = requireActivity().getSharedPreferences("NotificationPrefs", Context.MODE_PRIVATE)
+        val notifications = preferences.getStringSet("notifications", mutableSetOf()) ?: mutableSetOf()
+        notifications.add(message)
+        preferences.edit().putStringSet("notifications", notifications).apply()
     }
 }
