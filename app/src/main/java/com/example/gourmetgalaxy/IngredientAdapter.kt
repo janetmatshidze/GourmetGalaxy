@@ -38,6 +38,8 @@ class IngredientAdapter(
     }
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
+        if (position < 0 || position >= itemCount) return // Safety check for position bounds
+
         if (holder is HeaderViewHolder) {
             if (position == 0 && shoppingList.isNotEmpty()) {
                 holder.bind("Your Shopping List")
@@ -69,9 +71,7 @@ class IngredientAdapter(
         shoppingList.addAll(newList)
         notifyDataSetChanged()
         onListChanged()
-
     }
-
 
     fun updatePurchasedList(newList: List<Ingredient>) {
         purchasedList.clear()
@@ -90,56 +90,38 @@ class IngredientAdapter(
             checkBox.isChecked = purchasedList.contains(ingredient)
             updateTextAppearance(checkBox.isChecked)
             checkBox.setOnCheckedChangeListener { _, isChecked ->
-
                 if (isChecked) {
                     shoppingList.remove(ingredient)
                     purchasedList.add(ingredient)
-
                 } else {
-
                     purchasedList.remove(ingredient)
                     shoppingList.add(ingredient)
-
                 }
                 updateTextAppearance(isChecked)
                 notifyDataSetChanged()
                 onListChanged()
             }
-
-
-                deleteButton.setOnClickListener {
-                if (adapterPosition != RecyclerView.NO_POSITION) {
-                    if (shoppingList.contains(ingredient)) {
-                        shoppingList.remove(ingredient)
-
-                    } else if (purchasedList.contains(ingredient)) {
-
-                        purchasedList.remove(ingredient)
-                    }
-                    notifyItemRemoved(adapterPosition)
-                    onListChanged()
-
-                }
+            deleteButton.setOnClickListener {
+                shoppingList.remove(ingredient)
+                purchasedList.remove(ingredient)
+                notifyDataSetChanged()
+                onListChanged()
             }
         }
 
-
-        private fun updateTextAppearance(isChecked: Boolean) {
-            if (isChecked) {
-                nameTextView.paintFlags = nameTextView.paintFlags or Paint.STRIKE_THRU_TEXT_FLAG
-                nameTextView.alpha = 0.5f
+        private fun updateTextAppearance(purchased: Boolean) {
+            nameTextView.paintFlags = if (purchased) {
+                nameTextView.paintFlags or Paint.STRIKE_THRU_TEXT_FLAG
             } else {
-                nameTextView.paintFlags = nameTextView.paintFlags and Paint.STRIKE_THRU_TEXT_FLAG.inv()
-                nameTextView.alpha = 1.0f
+                nameTextView.paintFlags and Paint.STRIKE_THRU_TEXT_FLAG.inv()
             }
         }
     }
 
     inner class HeaderViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        private val headerText: TextView = itemView.findViewById(R.id.headerText)
-
+        private val headerTitle: TextView = itemView.findViewById(R.id.headerText)
         fun bind(title: String) {
-            headerText.text = title
+            headerTitle.text = title
         }
     }
 }

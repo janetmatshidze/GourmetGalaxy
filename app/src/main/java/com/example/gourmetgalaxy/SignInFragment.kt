@@ -106,21 +106,16 @@ class SignInFragment : Fragment() {
                     return@setOnClickListener
                 }
 
-                auth.fetchSignInMethodsForEmail(email).addOnCompleteListener { task ->
+                // Attempt to sign in with email and password
+                auth.signInWithEmailAndPassword(email, password).addOnCompleteListener { task ->
                     if (task.isSuccessful) {
-                        val signInMethods = task.result?.signInMethods
-                        if (signInMethods?.isNotEmpty() == true) {
-                            if (signInMethods.contains(GoogleAuthProvider.GOOGLE_SIGN_IN_METHOD)) {
-                                Toast.makeText(context, "Email is already linked with a Google account. Please sign in with Google.", Toast.LENGTH_SHORT).show()
-                                signInWithGoogle()
-                            } else {
-                                Toast.makeText(context, "Email is already in use by another provider. Please use that provider to sign in.", Toast.LENGTH_SHORT).show()
-                            }
-                        } else {
-                            createManualAccount(email, password)
-                        }
+                        // Successful sign-in
+                        Toast.makeText(context, "Sign-in successful!", Toast.LENGTH_SHORT).show()
+                        startActivity(Intent(activity, DashboardActivity::class.java))
+                        activity?.finish()
                     } else {
-                        Toast.makeText(context, "Failed to check sign-in methods: ${task.exception?.message}", Toast.LENGTH_SHORT).show()
+                        // Sign-in failed, display error message
+                        Toast.makeText(context, "Sign-in failed: ${task.exception?.message}", Toast.LENGTH_SHORT).show()
                     }
                 }
             } else {
@@ -137,18 +132,6 @@ class SignInFragment : Fragment() {
         }
 
         return view
-    }
-
-    private fun createManualAccount(email: String, password: String) {
-        auth.createUserWithEmailAndPassword(email, password).addOnCompleteListener { task ->
-            if (task.isSuccessful) {
-                Toast.makeText(context, "Sign-up successful!", Toast.LENGTH_SHORT).show()
-                startActivity(Intent(activity, DashboardActivity::class.java))
-                activity?.finish()
-            } else {
-                Toast.makeText(context, "Sign-up failed: ${task.exception?.message}", Toast.LENGTH_SHORT).show()
-            }
-        }
     }
 
     private fun signInWithGoogle() {

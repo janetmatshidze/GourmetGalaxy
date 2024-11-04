@@ -1,84 +1,103 @@
 package com.example.gourmetgalaxy
 
-import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.fragment.app.Fragment
-import androidx.navigation.fragment.findNavController
 import com.example.gourmetgalaxy.databinding.FragmentNotificationsBinding
+import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.firestore.Query
+import android.graphics.Typeface
+import androidx.core.content.ContextCompat
+import java.text.SimpleDateFormat
+import java.util.*
+
 
 class NotificationsFragment : Fragment() {
 
     private var _binding: FragmentNotificationsBinding? = null
     private val binding get() = _binding!!
-    private var itemNotificationView: View? = null
+    private val db = FirebaseFirestore.getInstance()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
         _binding = FragmentNotificationsBinding.inflate(inflater, container, false)
-        val view = binding.root
 
-        // Set up button to navigate to settings
-        binding.TurnOnNotificationsBtn.setOnClickListener {
-            findNavController().navigate(R.id.action_notificationsFragment_to_settingsnotificationsFragment)
-        }
+        // Fetch and display notifications from Firestore
+        fetchNotifications()
 
-        // Update the UI visibility based on toggle states when fragment resumes
-        updateUIVisibility(inflater)
-
-        return view
+        return binding.root
     }
 
-    override fun onResume() {
-        super.onResume()
-        // Reload notification data and update visibility when fragment resumes
-        updateUIVisibility(layoutInflater)
-    }
+    private fun fetchNotifications() {
+        db.collection("notifications")
+            .orderBy("timestamp", Query.Direction.DESCENDING)
+            .get()
+            .addOnSuccessListener { documents ->
+                binding.notificationsContainer.removeAllViews() // Clear existing views
 
-    private fun updateUIVisibility(inflater: LayoutInflater) {
-        val preferences = requireActivity().getSharedPreferences("NotificationPrefs", Context.MODE_PRIVATE)
-        val newRecipesEnabled = preferences.getBoolean("newRecipesEnabled", false)
-        val recipeRatingsEnabled = preferences.getBoolean("recipeRatingsEnabled", false)
+                for (document in documents) {
+                    val title = document.getString("title") ?: "Notification"
+                    val message = document.getString("message") ?: "No details available."
 
-        // Retrieve notifications from SharedPreferences
-        val notifications = preferences.getStringSet("notifications", mutableSetOf()) ?: mutableSetOf()
-
-        // Remove any existing notification view if it exists
-        itemNotificationView?.let {
-            binding.notificationsContainer.removeView(it)
-            itemNotificationView = null
-        }
-
-        if (notifications.isNotEmpty() && (newRecipesEnabled || recipeRatingsEnabled)) {
-            notifications.forEach { notification ->
-                itemNotificationView = inflater.inflate(R.layout.item_notification, binding.notificationsContainer, false).apply {
-                    findViewById<TextView>(R.id.title).text = "Gourmet Galaxy Notification"
-                    findViewById<TextView>(R.id.message).text = notification
-                    findViewById<TextView>(R.id.time).text = System.currentTimeMillis().toString() // Should be formatted properly
+                    // Create a view for each notification with the actual title and message
+                    val notificationView = createNotificationView(title, message)
+                    binding.notificationsContainer.addView(notificationView)
                 }
-                binding.notificationsContainer.addView(itemNotificationView)
             }
-
-            // Hide the default prompt views
-            binding.notificationImage.visibility = View.GONE
-            binding.notificationTitle.visibility = View.GONE
-            binding.notificationDescription.visibility = View.GONE
-            binding.TurnOnNotificationsBtn.visibility = View.GONE
-            binding.btnNotNow.visibility = View.GONE
-        } else {
-            // No notifications enabled, show the prompt to turn on notifications
-            binding.notificationImage.visibility = View.VISIBLE
-            binding.notificationTitle.visibility = View.VISIBLE
-            binding.notificationDescription.visibility = View.VISIBLE
-            binding.TurnOnNotificationsBtn.visibility = View.VISIBLE
-            binding.btnNotNow.visibility = View.VISIBLE
-        }
+            .addOnFailureListener { e ->
+                e.printStackTrace() // Log error for debugging
+            }
     }
+
+    private fun createNotificationView(title: String, message: String): View {
+        val context = requireContext()
+        val notificationView = LinearLayout(context).apply {
+            orientation = LinearLayout.VERTICAL
+            setPadding(24, 24, 24, 24)
+            setBackgroundResource(R.drawable.notification_background)
+            layoutParams = LinearLayout.LayoutParams(
+                LinearLayout.LayoutParams.MATCH_PARENT,
+                LinearLayout.LayoutParams.WRAP_CONTENT
+            ).apply {
+                setMargins(0, 16, 0, 16)
+            }
+        }
+
+        val titleView = TextView(context).apply {
+            text = title
+            textSize = 18f
+            setTypeface(null, Typeface.BOLD)
+            setTextColor(ContextCompat.getColor(context, R.color.titleColor))
+        }
+
+        val messageView = TextView(context).apply {
+            text = message
+            textSize = 16f
+            setTextColor(ContextCompat.getColor(context, R.color.messageColor))
+        }
+
+        val timestampView = TextView(context).apply {
+            text = "Time: " + SimpleDateFormat("MMM dd, yyyy - HH:mm", Locale.getDefault()).format(Date())
+            textSize = 12f
+            setTextColor(ContextCompat.getColor(context, R.color.timestampColor))
+        }
+
+        notificationView.apply {
+            addView(titleView)
+            addView(messageView)
+            addView(timestampView)
+        }
+
+        return notificationView
+    }
+
+
 
     override fun onDestroyView() {
         super.onDestroyView()

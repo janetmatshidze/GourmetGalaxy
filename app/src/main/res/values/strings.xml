@@ -144,5 +144,6 @@
     <string name="technical_support_and_contact_information">Technical Support and Contact Information</string>
     <string name="support_gourmetgalaxy_com">support@gourmetgalaxy.com</string>
     <string name="phone">+27731681659</string>
+    <string name="confirm_password">Confirm Password</string>
 
 </resources>

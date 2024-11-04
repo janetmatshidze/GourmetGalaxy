@@ -14,6 +14,7 @@ import android.view.ViewGroup
 import android.widget.ArrayAdapter
 import android.widget.AutoCompleteTextView
 import android.widget.Button
+import android.widget.ImageButton
 import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.Toast
@@ -28,6 +29,7 @@ import com.google.android.material.textfield.TextInputLayout
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.storage.FirebaseStorage
+import de.hdodenhof.circleimageview.CircleImageView
 import java.io.File
 import java.util.UUID
 
@@ -62,6 +64,11 @@ class AddRecipeFragment : Fragment() {
     ): View? {
         val view = inflater.inflate(R.layout.fragment_addrecipe, container, false)
 
+        val backButton: ImageButton = view.findViewById(R.id.backButton)
+
+        backButton.setOnClickListener {
+            findNavController().navigate(R.id.action_addrecipeFragment_to_recipeFragment)
+        }
         // Initialize Firebase components
         auth = FirebaseAuth.getInstance()
         firestore = FirebaseFirestore.getInstance()

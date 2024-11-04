@@ -6,7 +6,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.widget.addTextChangedListener
 import androidx.fragment.app.Fragment
@@ -63,7 +62,8 @@ class AddIngredientsFragment : Fragment() {
                     ingredient.name.contains(query, ignoreCase = true)
                 }.toMutableList()
             } else {
-                allIngredients.toMutableList()
+                // Show current lists when search is empty
+                (shoppingList + purchasedList).toMutableList()
             }
             ingredientAdapter.updateShoppingList(filteredList)
             toggleEmptyState()

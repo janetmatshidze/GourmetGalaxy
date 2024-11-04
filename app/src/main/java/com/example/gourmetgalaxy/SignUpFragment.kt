@@ -21,6 +21,10 @@ import com.google.android.gms.common.api.ApiException
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.GoogleAuthProvider
 import com.google.firebase.auth.FirebaseUser
+import android.graphics.Color
+import android.text.SpannableString
+import android.text.Spanned
+import android.text.style.ForegroundColorSpan
 
 class SignUpFragment : Fragment() {
 
@@ -49,6 +53,7 @@ class SignUpFragment : Fragment() {
         googleSignInClient = GoogleSignIn.getClient(requireActivity(), gso)
 
         val passwordEditText = view.findViewById<EditText>(R.id.passwordEditText)
+        val confirmPasswordEditText=view.findViewById<EditText>(R.id.ConfirmPasswordEditText)
         val firstNameEditText = view.findViewById<EditText>(R.id.firstnameditTextText)
         val lastNameEditText = view.findViewById<EditText>(R.id.lastnameEditText)
         val emailEditText = view.findViewById<EditText>(R.id.emailEditText)
@@ -57,6 +62,28 @@ class SignUpFragment : Fragment() {
         val imageView5 = view.findViewById<ImageView>(R.id.imageView5)
         val agreeCheckBox = view.findViewById<CheckBox>(R.id.AgreeCheckBox)
 
+        val fullText = "I agree to the Terms and Conditions and Privacy Policy"
+        val spannableString = SpannableString(fullText)
+        val tealColor = Color.parseColor("#008080")
+        val termsStart = fullText.indexOf("Terms and Conditions")
+        val termsEnd = termsStart + "Terms and Conditions".length
+        spannableString.setSpan(
+            ForegroundColorSpan(tealColor),
+            termsStart,
+            termsEnd,
+            Spanned.SPAN_EXCLUSIVE_EXCLUSIVE
+        )
+
+        val privacyStart = fullText.indexOf("Privacy Policy")
+        val privacyEnd = privacyStart + "Privacy Policy".length
+        spannableString.setSpan(
+            ForegroundColorSpan(tealColor),
+            privacyStart,
+            privacyEnd,
+            Spanned.SPAN_EXCLUSIVE_EXCLUSIVE
+        )
+
+        agreeCheckBox.text = spannableString
         // Password visibility toggle
         imageView5.setOnClickListener {
             if (isPasswordVisible) {
@@ -74,10 +101,11 @@ class SignUpFragment : Fragment() {
         signUpButton.setOnClickListener {
             val email = emailEditText.text.toString().trim()
             val password = passwordEditText.text.toString().trim()
+            val confirmPassword=confirmPasswordEditText.text.toString().trim()
             val firstName = firstNameEditText.text.toString().trim()
             val lastName = lastNameEditText.text.toString().trim()
 
-            if (email.isNotEmpty() && password.isNotEmpty() && firstName.isNotEmpty() && lastName.isNotEmpty() && agreeCheckBox.isChecked) {
+            if (email.isNotEmpty() && password.isNotEmpty() && confirmPassword.isNotEmpty() && firstName.isNotEmpty() && lastName.isNotEmpty() && agreeCheckBox.isChecked) {
                 // Check password validity
                 if (!isPasswordValid(password)) {
                     Toast.makeText(context, "Password must be at least 8 characters long, contain at least one uppercase letter, one digit, and one special character.", Toast.LENGTH_LONG).show()
@@ -94,6 +122,7 @@ class SignUpFragment : Fragment() {
                             // Clear the text fields after successful sign-up
                             emailEditText.text.clear()
                             passwordEditText.text.clear()
+                            confirmPasswordEditText.text.clear()
                             firstNameEditText.text.clear()
                             lastNameEditText.text.clear()
                             agreeCheckBox.isChecked = false // Optionally reset the checkbox

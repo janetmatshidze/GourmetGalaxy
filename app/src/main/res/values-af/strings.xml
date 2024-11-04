@@ -126,5 +126,7 @@
     <string name="technical_support_and_contact_information">Tegniese Ondersteuning en Kontakinligting</string>
     <string name="support_gourmetgalaxy_com">support@gourmetgalaxy.com</string>
     <string name="phone">+27731681659</string>
+    <string name="confirm_password">Bevestig Wagwoord</string>
+
 
 </resources>

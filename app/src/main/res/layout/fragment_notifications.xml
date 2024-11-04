@@ -1,95 +1,37 @@
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="16dp"
-    android:id="@+id/notificationsFragment"
-    android:background="@color/white"
-    tools:context=".NotificationsFragment">
+    android:orientation="vertical"
+    android:background="#F5F5F5"
+    android:padding="16dp">
 
-    <FrameLayout
-        android:id="@+id/notificationsContainer"
+    <!-- Page Title -->
+    <TextView
+        android:id="@+id/title_notifications"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Notifications"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:paddingBottom="8dp"
+        android:textColor="#333333" />
+
+    <!-- Notifications Container -->
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"/>
+        android:layout_marginTop="8dp">
 
+        <LinearLayout
+            android:id="@+id/notificationsContainer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="8dp">
 
-    <ImageView
-        android:id="@+id/notification_image"
-        android:layout_width="292dp"
-        android:layout_height="321dp"
-        android:layout_marginTop="16dp"
-        android:contentDescription="Notification Illustration"
-        android:src="@drawable/img_notifications3"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.504"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+            <!-- Each notification item will be dynamically added here -->
 
-    <TextView
-        android:id="@+id/notification_title"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:textColor="@color/black"
-        android:fontFamily="@font/inter"
-        android:text="@string/turn_on_notifications"
-        android:textSize="20sp"
-        android:textStyle="bold"
-        app:layout_constraintTop_toBottomOf="@id/notification_image"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginBottom="12dp"/>
+        </LinearLayout>
+    </ScrollView>
 
-
-    <TextView
-        android:id="@+id/notification_description"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginHorizontal="24dp"
-        android:layout_marginTop="12dp"
-        android:fontFamily="@font/inter"
-        android:gravity="center"
-        android:lineSpacingExtra="2dp"
-        android:text="@string/make_sure_you_stay_up_to_date_with_all_the_important_news_and_reminders_by_enabling_notifications_you_can_always_turn_it_off_later"
-        android:textColor="@color/darkgrey"
-        android:textSize="14sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/notification_title" />
-
-    <Button
-        android:id="@+id/TurnOnNotificationsBtn"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
-        android:background="@drawable/ic_rounded_button"
-        android:fontFamily="@font/inter"
-        android:padding="10dp"
-        android:text="@string/turn_notifications"
-        android:textColor="#FFFFFF"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/notification_description"
-        app:layout_constraintHorizontal_bias="0.0" />
-
-    <Button
-        android:id="@+id/btn_not_now"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:background="@android:color/transparent"
-        android:backgroundTint="@android:color/transparent"
-        android:elevation="0dp"
-        android:fontFamily="@font/inter"
-        android:padding="8dp"
-        android:text="@string/not_now"
-        android:textColor="@color/darkgrey"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/TurnOnNotificationsBtn" />
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+</LinearLayout>

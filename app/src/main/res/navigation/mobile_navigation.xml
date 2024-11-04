@@ -44,10 +44,6 @@
         android:id="@+id/action_recipeDetailsFragment_to_homeFragment"
         app:destination="@+id/nav_home" />
 
-    <fragment
-        android:id="@+id/nav_leaderboard"
-        android:name="com.example.gourmetgalaxy.LeaderboardFragment"
-        tools:layout="@layout/fragment_leaderboard" />
 
     <fragment
         android:id="@+id/nav_favourites"
@@ -77,6 +73,11 @@
     <action
         android:id="@+id/action_recipeFragment_to_addrecipeFragment"
         app:destination="@id/addrecipeFragment" />
+
+    <action
+        android:id="@+id/action_addrecipeFragment_to_recipeFragment"
+        app:destination="@id/nav_recipe" />
+
 
     <fragment
         android:id="@+id/nav_settings"

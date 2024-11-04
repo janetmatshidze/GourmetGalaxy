@@ -60,7 +60,6 @@ class DashboardActivity : BaseActivity() {
                 R.id.nav_favourites -> navController.navigate(R.id.nav_favourites)
                 R.id.nav_settings -> navController.navigate(R.id.nav_settings)
                 R.id.nav_recipe -> navController.navigate(R.id.nav_recipe)
-                R.id.nav_leaderboard -> navController.navigate(R.id.nav_leaderboard)
 
             }
             drawerLayout.closeDrawers()  // Close drawer after item selection

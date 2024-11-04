@@ -9,5 +9,9 @@
     <color name="lightteal">#1c727c</color>
     <color name ="coral">#66b2b2</color>
     <color name="transparentwhite">#B3FFFFFF</color>
+    <color name="titleColor">#333333</color> <!-- Dark gray for titles -->
+    <color name="messageColor">#555555</color> <!-- Medium gray for messages -->
+    <color name="timestampColor">#777777</color> <!-- Light gray for timestamps -->
+
 
 </resources>
